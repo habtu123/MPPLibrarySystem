@@ -26,8 +26,8 @@ public class LoginWindow extends Stage implements LibWindow {
 	private PasswordField passwordField = new PasswordField(); 
 	public void clear() {
 		messageBar.setText("");
-		usernameTxt.setText("");
-		passwordField.setText("");
+		usernameTxt.clear();
+		passwordField.clear();
 	}
 	
 	/* This class is a singleton */
@@ -36,10 +36,10 @@ public class LoginWindow extends Stage implements LibWindow {
    public void init() { 
 	   Parent root = null;
 	   try {
-		root = FXMLLoader.load(getClass().getResource("Login.fxml"));
+		root = FXMLLoader.load(getClass().getResource("./view/Login.fxml"));
 		
 		Scene scene = new Scene(root, 800,500);
-		scene.getStylesheets().add("bootstrapfx.css");
+		scene.getStylesheets().add("./view/style/bootstrapfx.css");
 		setScene(scene);
 		isInitialized(true);
 	} catch (IOException e) {

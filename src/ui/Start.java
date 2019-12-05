@@ -142,7 +142,7 @@ public class Start extends Application {
 		mainMenu.getMenus().addAll(optionsMenu);
 		Scene scene = new Scene(topContainer, 420, 375);
 		primaryStage.setScene(scene);
-		scene.getStylesheets().add(getClass().getResource("library.css").toExternalForm());
+		scene.getStylesheets().add(getClass().getResource("./view/style/library.css").toExternalForm());
 		primaryStage.show();
 	}
 	

@@ -13,14 +13,14 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
 <!-- fx:controller="fxmlexample.FXMLExampleController"  -->
-<BorderPane fx:controller="ui.TestController" xmlns:fx="http://javafx.com/fxml" fx:id="contentBars">
+<BorderPane fx:controller="ui.controller.AdminSideBarController" xmlns:fx="http://javafx.com/fxml" fx:id="contentBars">
     <top>
         <BorderPane styleClass="header-section">
             <left>
                 <Label id="header-text" text="Library System"></Label>
             </left>
             <right>
-                <Button id="account" text="Log out">
+                <Button id="account" text="Log out" onAction="#handleLogoutButtonAction">
                     <graphic>
                         <ImageView fitHeight="24" fitWidth="24" 
                             pickOnBounds="true" preserveRatio="true">
@@ -66,6 +66,6 @@
         </HBox>
     </bottom>
     <stylesheets>
-		    <URL value="@library.css" />
+		    <URL value="@style/library.css" />
 		</stylesheets>
 </BorderPane>

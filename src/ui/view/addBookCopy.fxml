@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.text.TextFlow?>
+<!-- fx:controller="fxmlexample.FXMLExampleController" -->
+<GridPane fx:id="paneScreen" fx:controller="ui.controller.BookController"
+	styleClass="page" xmlns:fx="http://javafx.com/fxml" alignment="center"
+	hgap="10" vgap="10">
+	<padding>
+		<Insets top="25" right="25" bottom="10" left="25" />
+	</padding>
+	<Text text="Welcome" GridPane.columnIndex="0"
+		GridPane.rowIndex="0" GridPane.columnSpan="2" />
+
+	<Label text="ISBN:" GridPane.columnIndex="0"
+		GridPane.rowIndex="1" />
+	<TextField fx:id="bookISBN" GridPane.columnIndex="1"
+		GridPane.rowIndex="1" />
+		
+	<Label GridPane.columnIndex="1" GridPane.rowIndex="6"
+		fx:id="actiontarget" StyleClass="alert, alert-danger" visible="false" />
+	<Button text="Add Book Copy" styleClass="sidebar-button"
+		id="addBookCopy" onAction="#handleAddBookCopy"></Button>
+</GridPane>

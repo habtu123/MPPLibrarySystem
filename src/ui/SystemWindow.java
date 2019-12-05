@@ -20,7 +20,7 @@ public class SystemWindow extends Stage implements LibWindow {
 	public void init() {
 		Parent root = null;
 		   try {
-			root = FXMLLoader.load(getClass().getResource("Test.fxml"));
+			root = FXMLLoader.load(getClass().getResource("./view/systemWindow.fxml"));
 			Scene scene = new Scene(root, 800, 500); 
 			
 			if(SystemController.currentAuth.equals(Auth.BOTH)) {
@@ -35,7 +35,7 @@ public class SystemWindow extends Stage implements LibWindow {
 //				 lib.getChildren().removeAll(); 
 				System.out.println("Full authority");
 			}
-			scene.getStylesheets().add("bootstrapfx.css"); 
+			scene.getStylesheets().add("./view/style/bootstrapfx.css"); 
 			
 			setScene(scene);
 			isInitialized(true); 

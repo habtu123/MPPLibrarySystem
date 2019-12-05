@@ -3,6 +3,7 @@ package business;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.logging.Logger;
 
 import dataaccess.Auth;
 import dataaccess.DataAccess;
@@ -11,7 +12,7 @@ import dataaccess.User;
 
 public class SystemController implements ControllerInterface {
 	public static Auth currentAuth = null;
-	
+	private final static Logger loger = Logger.getLogger(SystemController.class.getName());
 	public void login(String id, String password) throws LoginException {
 		DataAccess da = new DataAccessFacade();
 		HashMap<String, User> map = da.readUserMap();
@@ -39,6 +40,21 @@ public class SystemController implements ControllerInterface {
 		List<String> retval = new ArrayList<>();
 		retval.addAll(da.readBooksMap().keySet());
 		return retval;
+	}
+	@Override
+	public void addBookCopy(String ISBN) throws LibrarySystemException {
+		loger.info("Start addBooCopy .....");
+		List<String> books = allBookIds(); 
+		if(!books.contains(ISBN)) {
+			throw new LibrarySystemException("Book not Found"); 
+		}
+		DataAccess da = new DataAccessFacade();
+		HashMap<String, Book> bookSet = da.readBooksMap(); 
+		Book book = bookSet.get(ISBN); 
+		loger.info("book to be added"+book.getIsbn());
+		book.addCopy();
+		loger.info("End addBooCopy started.....");
+		
 	}
 	
 	
