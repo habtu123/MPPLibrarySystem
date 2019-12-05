@@ -9,6 +9,7 @@ import business.LibrarySystemException;
 import business.SystemController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 public class MemberController {
@@ -20,17 +21,21 @@ public class MemberController {
 	@FXML private TextField firstnameTxt;
 	@FXML private TextField lastnameTxt;
 	@FXML private TextField phonoTxt;
+	@FXML private Label actiontarget;
 	
 	
 	@FXML protected void handleAddNewmemberAction(ActionEvent event) throws IOException {
       System.out.println("Add Book copy");
+      actiontarget.setText("");
       if(emptyFields(new String[] {memberIdTxt.getText().trim(), firstnameTxt.getText().trim(), 
     		  lastnameTxt.getText().trim(), phonoTxt.getText().trim()})) {
+    	  actiontarget.setText("Empty LibraryMember fields");
     	  throw new IOException("Empty LibraryMember fields");
       }
       
       if(emptyFields(new String[] {streetTxt.getText().trim(), cityTxt.getText().trim(), 
     		  stateTxt.getText().trim(), zipTxt.getText().trim()})) {
+    	  actiontarget.setText("Empty addreess fields");
     	  throw new IOException("Empty addreess fields");
       }
       
@@ -42,8 +47,7 @@ public class MemberController {
       try {
 		c.addMember(newMember);
 	} catch (LibrarySystemException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
+		 actiontarget.setText(e.getMessage());
 	}
   	}
 
