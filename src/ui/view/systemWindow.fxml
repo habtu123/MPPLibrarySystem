@@ -17,10 +17,10 @@
     <top>
         <BorderPane styleClass="header-section">
             <left>
-                <Label id="header-text" text="Library System"></Label>
+                <Label id="headerText" text="Library System"></Label>
             </left>
             <right>
-                <Button id="account" text="Log out" onAction="#handleLogoutButtonAction">
+           		  <Button id="account" text="Log out" onAction="#handleLogoutButtonAction">
                     <graphic>
                         <ImageView fitHeight="24" fitWidth="24" 
                             pickOnBounds="true" preserveRatio="true">
@@ -31,12 +31,16 @@
                     </graphic>
                 </Button>
             </right>
+            <center>
+            	 <Label id="userDisplay" text=""></Label>
+            </center>
+            
         </BorderPane>
     </top>
     <left>
         <VBox styleClass="sidebar-section" id="both" >
             <children>
-                <Button text="Add New Memeber" styleClass="sidebar-button" id="addNewMemeberBoth" ></Button>
+                <Button text="Add New Member" styleClass="sidebar-button" id="addNewMemeberBoth" ></Button>
                 <Button text="Add A Copy"  styleClass="sidebar-button" id="addCopyBoth" ></Button>
                 <Button text="Checkout Book"  styleClass="sidebar-button" id="checkoutBookBoth" ></Button>
                
@@ -50,7 +54,7 @@
              </VBox>
             <VBox styleClass="sidebar-section" id="admin">
             <children>
-                <Button text="Add New Memeber" styleClass="sidebar-button" id="addNewMemeber" onAction="#addNewMemeberAction"></Button>
+                <Button text="Add New Member" styleClass="sidebar-button" id="addNewMemeber" onAction="#addNewMemeberAction"></Button>
                 <Button text="Add A Copy" styleClass="sidebar-button" id="addBookCopy" onAction="#addNewCopyAction"></Button>
             </children>
         </VBox>

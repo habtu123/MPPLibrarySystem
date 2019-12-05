@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -16,6 +17,7 @@ public class SystemWindow extends Stage implements LibWindow {
 	
 	private Text messageBar = new Text();
 	private Button button = new Button(); 
+	//private Label userDisplay =new Label();
 	@Override
 	public void init() {
 		Parent root = null;
@@ -33,6 +35,8 @@ public class SystemWindow extends Stage implements LibWindow {
 //				 
 //				 admin.getChildren().removeAll(); 
 //				 lib.getChildren().removeAll(); 
+				Label authority=(Label)root.lookup("#userDisplay");
+				authority.setText(SystemController.currentAuth.toString());
 				System.out.println("Full authority");
 			}
 			scene.getStylesheets().add("./view/style/bootstrapfx.css"); 
