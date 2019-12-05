@@ -65,6 +65,8 @@ public class LoginWindow extends Stage implements LibWindow {
 
         PasswordField pwBox = new PasswordField();
         grid.add(pwBox, 1, 2);
+        
+        
 
         Button loginBtn = new Button("Log in");
         HBox hbBtn = new HBox(10);
@@ -85,6 +87,14 @@ public class LoginWindow extends Stage implements LibWindow {
         			c.login(userTextField.getText().trim(), pwBox.getText().trim());
         			messageBar.setFill(Start.Colors.green);
              	    messageBar.setText("Login successful");
+             	    
+             	  
+       			if(!SystemWindow.INSTANCE.isInitialized()) {
+       				SystemWindow.INSTANCE.init();
+       			}
+       			SystemWindow.INSTANCE.clear(); 
+       			SystemWindow.INSTANCE.show();
+       			LoginWindow.INSTANCE.hide();
         		} catch(LoginException ex) {
         			messageBar.setFill(Start.Colors.red);
         			messageBar.setText("Error! " + ex.getMessage());
