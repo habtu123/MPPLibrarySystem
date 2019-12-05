@@ -39,7 +39,6 @@ public class LoginWindow extends Stage implements LibWindow {
 		root = FXMLLoader.load(getClass().getResource("./view/Login.fxml"));
 		
 		Scene scene = new Scene(root, 800,500);
-		scene.getStylesheets().add("./view/style/bootstrapfx.css");
 		setScene(scene);
 		isInitialized(false);
 	} catch (IOException e) {
