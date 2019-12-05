@@ -41,7 +41,7 @@ public class LoginWindow extends Stage implements LibWindow {
 		Scene scene = new Scene(root, 800,500);
 		scene.getStylesheets().add("./view/style/bootstrapfx.css");
 		setScene(scene);
-		isInitialized(true);
+		isInitialized(false);
 	} catch (IOException e) {
 		e.printStackTrace();
 	}
