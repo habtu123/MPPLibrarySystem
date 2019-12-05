@@ -31,6 +31,7 @@ public class SystemWindowController {
     	SystemWindow.INSTANCE.clear();
     	if(LoginWindow.INSTANCE.isInitialized())
     		LoginWindow.INSTANCE.clear();
+    		LoginWindow.INSTANCE.isInitialized(false);
     	Start.hideAllWindows();
 		Start.primStage().show();
 		
