@@ -18,7 +18,7 @@ public class AdminSideBarController {
     
     @FXML protected void addNewMemeberAction(ActionEvent event) throws IOException {
 //        actiontarget.setText("Sign in button pressed " + usernameTxt.getText());
-    	GridPane pane = FXMLLoader.load(getClass().getResource("../view/systemWindow.fxml"));
+    	GridPane pane = FXMLLoader.load(getClass().getResource("../view/addMember.fxml"));
     	contentBars.setCenter(pane);
     	
     }

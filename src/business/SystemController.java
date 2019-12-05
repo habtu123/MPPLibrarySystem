@@ -3,6 +3,7 @@ package business;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.logging.Logger;
 
 import dataaccess.Auth;
@@ -56,6 +57,28 @@ public class SystemController implements ControllerInterface {
 		loger.info("End addBooCopy started.....");
 		
 	}
+	@Override
+	public void addMember(LibraryMember newMember) throws LibrarySystemException {
+		loger.info("Start addMember .....");
+
+		DataAccess da = new DataAccessFacade();
+		HashMap<String, LibraryMember> members = da.readMemberMap();
+		if(existMember(members, newMember)) {
+			throw new LibrarySystemException("User already exist"); 
+		}
+
+		loger.info("member to be added "+newMember.getMemberId());
+		da.saveNewMember(newMember);
+		loger.info("End addBooCopy started.....");
+	}
 	
-	
+	private boolean existMember(HashMap<String, LibraryMember> members, LibraryMember newMember) {
+		LibraryMember libraryMember;
+		for (Map.Entry<String, LibraryMember> entry : members.entrySet())  {
+            libraryMember = entry.getValue();
+            if(libraryMember.getMemberId().equals(newMember.getMemberId()))
+            	return true;
+		}
+		return false;
+	}
 }
