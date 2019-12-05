@@ -89,15 +89,11 @@ public class Start extends Application {
             public void handle(ActionEvent e) {
             	hideAllWindows();
             	Parent root = null;
-				try {
-					root = FXMLLoader.load(getClass().getResource("Login.fxml"));
-				} catch (IOException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-                Scene scene = new Scene(root, 800, 500);
-                primaryStage.setScene(scene);
-                primaryStage.show();
+				if(!LoginWindow.INSTANCE.isInitialized())
+					LoginWindow.INSTANCE.init();
+				
+				LoginWindow.INSTANCE.clear();
+				LoginWindow.INSTANCE.show(); 
             }
         });			
 							
