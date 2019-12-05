@@ -8,13 +8,14 @@ import business.SystemController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
  
 public class LoginController {
-    @FXML private Text actiontarget;
+    @FXML private Label actiontarget;
     @FXML private TextField usernameTxt;
     @FXML private PasswordField passwordField;
     @FXML private GridPane paneScreen;
@@ -22,9 +23,16 @@ public class LoginController {
     @FXML protected void handleSubmitButtonAction(ActionEvent event) throws IOException {
 //        actiontarget.setText("Sign in button pressed " + usernameTxt.getText());
     	
+    	if (usernameTxt.getText().trim().equals("")|| passwordField.getText().trim().equals(""))
+    	{
+    		actiontarget.setVisible(true);
+			actiontarget.setText("Please fill your credentials correctly! ");
+    	}
+    	else {
     	try {
 			ControllerInterface c = new SystemController();
 			c.login(usernameTxt.getText().trim(), passwordField.getText().trim());
+			
 //			messageBar.setFill(Start.Colors.green);
 //     	    messageBar.setText("Login successful");
      	    
@@ -33,13 +41,16 @@ public class LoginController {
 		if(!SystemWindow.INSTANCE.isInitialized()) {
 				SystemWindow.INSTANCE.init();
 			}
-			SystemWindow.INSTANCE.clear(); 
+			LoginWindow.INSTANCE.clear(); 
+			SystemWindow.INSTANCE.clear();
 			SystemWindow.INSTANCE.show();
 			LoginWindow.INSTANCE.hide();
 		} catch(LoginException ex) {
-			actiontarget.setFill(Start.Colors.red);
+			//actiontarget.set(Start.Colors.red);
+			actiontarget.setVisible(true);
 			actiontarget.setText("Error! " + ex.getMessage());
 			//actiontarget.setText("bad ");
 		}
+    	}
     }
 }

@@ -5,6 +5,8 @@ import java.io.IOException;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -20,8 +22,12 @@ public class LoginWindow extends Stage implements LibWindow {
 		isInitialized = val;
 	}
 	private Text messageBar = new Text();
+	private TextField usernameTxt = new TextField(); 
+	private PasswordField passwordField = new PasswordField(); 
 	public void clear() {
 		messageBar.setText("");
+		usernameTxt.setText("");
+		passwordField.setText("");
 	}
 	
 	/* This class is a singleton */
@@ -33,6 +39,7 @@ public class LoginWindow extends Stage implements LibWindow {
 		root = FXMLLoader.load(getClass().getResource("Login.fxml"));
 		
 		Scene scene = new Scene(root, 800,500);
+		scene.getStylesheets().add("bootstrapfx.css");
 		setScene(scene);
 		isInitialized(true);
 	} catch (IOException e) {
