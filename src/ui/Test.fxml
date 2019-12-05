@@ -13,14 +13,14 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
 <!-- fx:controller="fxmlexample.FXMLExampleController"  -->
-<BorderPane fx:controller="ui.SystemWindowController" xmlns:fx="http://javafx.com/fxml">
+<BorderPane fx:controller="ui.TestController" xmlns:fx="http://javafx.com/fxml" fx:id="contentBars">
     <top>
         <BorderPane styleClass="header-section">
             <left>
                 <Label id="header-text" text="Library System"></Label>
             </left>
             <right>
-                <Button id="account" text="Log out"  onAction="#handleLogoutButtonAction">
+                <Button id="account" text="Log out">
                     <graphic>
                         <ImageView fitHeight="24" fitWidth="24" 
                             pickOnBounds="true" preserveRatio="true">
@@ -50,31 +50,13 @@
              </VBox>
             <VBox styleClass="sidebar-section" id="admin">
             <children>
-                <Button text="Add New Memeber" styleClass="sidebar-button" id="addNewMemeber" ></Button>
-                <Button text="Add A Copy" styleClass="sidebar-button" id="addBookCopy" ></Button>
+                <Button text="Add New Memeber" styleClass="sidebar-button" id="addNewMemeber" onAction="#addNewMemeberAction"></Button>
+                <Button text="Add A Copy" styleClass="sidebar-button" id="addBookCopy" onAction="#addNewCopyAction"></Button>
             </children>
         </VBox>
     </left>
     <center>
-        <VBox styleClass="content-section">
-            <children>
-                <Label id="content-header" text="Content header"></Label>
-                <Label id="content">
-                    <text>
-                        Lorem Ipsum is simply dummy text of the printing and
-                        typesetting industry. Lorem Ipsum has been the industry's
-                        standard dummy text ever since the 1500s, when an unknown 
-                        printer took a galley of type and scrambled it to make a 
-                        type specimen book. It has survived not only five centuries, 
-                        but also the leap into electronic typesetting, remaining 
-                        essentially unchanged. It was popularised in the 1960s with 
-                        the release of Letraset sheets containing Lorem Ipsum 
-                        passages, and more recently with desktop publishing software 
-                        like Aldus PageMaker including versions of Lorem Ipsum.
-                    </text>
-                </Label>
-            </children>
-        </VBox>
+        
     </center>
     <bottom>
         <HBox id="footer-section">
