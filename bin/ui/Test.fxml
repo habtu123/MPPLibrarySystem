@@ -36,27 +36,15 @@
     <left>
         <VBox styleClass="sidebar-section" id="both" >
             <children>
-                <Button text="Add New Memeber" styleClass="sidebar-button" id="addNewMemeberBoth" ></Button>
+                <Button text="Add New Memeber" styleClass="sidebar-button" id="addNewMemeberBoth" onAction="#handleAddNewMemberAction"></Button>
                 <Button text="Add A Copy"  styleClass="sidebar-button" id="addCopyBoth" ></Button>
                 <Button text="Checkout Book"  styleClass="sidebar-button" id="checkoutBookBoth" ></Button>
                
             </children>
         </VBox>
-        
-          <VBox styleClass="sidebar-section" id="lib">
-            <children>
-                <Button text="Checkout Book" styleClass="sidebar-button" id="checkout-book" ></Button>
-            </children>
-             </VBox>
-            <VBox styleClass="sidebar-section" id="admin">
-            <children>
-                <Button text="Add New Memeber" styleClass="sidebar-button" id="addNewMemeber" ></Button>
-                <Button text="Add A Copy" styleClass="sidebar-button" id="addBookCopy" ></Button>
-            </children>
-        </VBox>
     </left>
     <center>
-        <VBox styleClass="content-section">
+        <VBox fx:id="vboxContent" styleClass="content-section">
             <children>
                 <Label id="content-header" text="Content header"></Label>
                 <Label id="content">
