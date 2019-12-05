@@ -1,5 +1,6 @@
 package ui;
 
+import java.io.IOException;
 import java.util.Collections;
 import java.util.List;
 
@@ -8,7 +9,9 @@ import business.SystemController;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
@@ -85,11 +88,16 @@ public class Start extends Application {
             @Override
             public void handle(ActionEvent e) {
             	hideAllWindows();
-    			if(!LoginWindow.INSTANCE.isInitialized()) {
-    				LoginWindow.INSTANCE.init();
-    			}
-    			LoginWindow.INSTANCE.clear();
-    			LoginWindow.INSTANCE.show();
+            	Parent root = null;
+				try {
+					root = FXMLLoader.load(getClass().getResource("Login.fxml"));
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+                Scene scene = new Scene(root, 800, 500);
+                primaryStage.setScene(scene);
+                primaryStage.show();
             }
         });			
 							
