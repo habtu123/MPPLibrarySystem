@@ -28,18 +28,18 @@ public class LoginController {
 //			messageBar.setFill(Start.Colors.green);
 //     	    messageBar.setText("Login successful");
      	    
-			GridPane pane = FXMLLoader.load(getClass().getResource("Test.fxml"));
-			paneScreen.getChildren().setAll(pane);
-//			if(!SystemWindow.INSTANCE.isInitialized()) {
-//				SystemWindow.INSTANCE.init();
-//			}
-//			SystemWindow.INSTANCE.clear(); 
-//			SystemWindow.INSTANCE.show();
-//			LoginWindow.INSTANCE.hide();
+			//GridPane pane = FXMLLoader.load(getClass().getResource("Test.fxml"));
+			//paneScreen.getChildren().setAll(pane);
+		if(!SystemWindow.INSTANCE.isInitialized()) {
+				SystemWindow.INSTANCE.init();
+			}
+			SystemWindow.INSTANCE.clear(); 
+			SystemWindow.INSTANCE.show();
+			LoginWindow.INSTANCE.hide();
 		} catch(LoginException ex) {
-//			messageBar.setFill(Start.Colors.red);
-//			messageBar.setText("Error! " + ex.getMessage());
-			actiontarget.setText("bad ");
+			actiontarget.setFill(Start.Colors.red);
+			actiontarget.setText("Error! " + ex.getMessage());
+			//actiontarget.setText("bad ");
 		}
     }
 }
