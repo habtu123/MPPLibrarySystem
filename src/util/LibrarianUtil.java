@@ -9,4 +9,13 @@ public class LibrarianUtil {
 		}
 		return false;
 	}
+	
+	/**
+	 * validates if the number is at least 1
+	 * @param string
+	 * @return
+	 */
+	public static boolean isNumeric(String string) {
+		return string.matches("[1-9]+[0-9]*");
+	}
 }
