@@ -5,12 +5,14 @@ import java.io.IOException;
 import business.ControllerInterface;
 import business.LoginException;
 import business.SystemController;
+import dataaccess.Auth;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import ui.LibrarianWindow;
 import ui.LoginWindow;
 import ui.SystemWindow;
  
@@ -33,24 +35,33 @@ public class LoginController {
 			ControllerInterface c = new SystemController();
 			c.login(usernameTxt.getText().trim(), passwordField.getText().trim());
 			
-//			messageBar.setFill(Start.Colors.green);
-//     	    messageBar.setText("Login successful");
-     	    
-			//GridPane pane = FXMLLoader.load(getClass().getResource("Test.fxml"));
-			//paneScreen.getChildren().setAll(pane);
-		if(!SystemWindow.INSTANCE.isInitialized()) {
-				SystemWindow.INSTANCE.init();
+			if(SystemController.currentAuth.equals(Auth.ADMIN)) {
+			
+				if(!SystemWindow.INSTANCE.isInitialized()) {
+						SystemWindow.INSTANCE.init();
+					}
+					LoginWindow.INSTANCE.clear(); 
+					SystemWindow.INSTANCE.clear();
+					SystemWindow.INSTANCE.show();
+					LoginWindow.INSTANCE.hide();
+				}
+			else if (SystemController.currentAuth.equals(Auth.LIBRARIAN)) {
+				if(!LibrarianWindow.INSTANCE.isInitialized()) {
+					LibrarianWindow.INSTANCE.init();
+				}
+				LoginWindow.INSTANCE.clear(); 
+				LibrarianWindow.INSTANCE.clear();
+				LibrarianWindow.INSTANCE.show();
+				LoginWindow.INSTANCE.hide();
 			}
-			LoginWindow.INSTANCE.clear(); 
-			SystemWindow.INSTANCE.clear();
-			SystemWindow.INSTANCE.show();
-			LoginWindow.INSTANCE.hide();
-		} catch(LoginException ex) {
-			//actiontarget.set(Start.Colors.red);
-			actiontarget.setVisible(true);
-			actiontarget.setText("Error! " + ex.getMessage());
-			//actiontarget.setText("bad ");
-		}
+			}
+    	
+    	 catch(LoginException ex) {
+				//actiontarget.set(Start.Colors.red);
+				actiontarget.setVisible(true);
+				actiontarget.setText("Error! " + ex.getMessage());
+				//actiontarget.setText("bad ");
     	}
+    }
     }
 }
