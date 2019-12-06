@@ -3,6 +3,7 @@ package ui.controller;
 import java.io.IOException;
 
 import business.Address;
+import business.CheckoutRecord;
 import business.ControllerInterface;
 import business.LibraryMember;
 import business.LibrarySystemException;
@@ -43,7 +44,7 @@ public class MemberController {
       
       LibraryMember newMember = new LibraryMember(memberIdTxt.getText().trim(), firstnameTxt.getText().trim(), 
     		  lastnameTxt.getText().trim(), phonoTxt.getText().trim(), 
-    		  new Address(streetTxt.getText(), cityTxt.getText(), stateTxt.getText(), zipTxt.getText()));
+    		  new Address(streetTxt.getText(), cityTxt.getText(), stateTxt.getText(), zipTxt.getText()), new CheckoutRecord());
 
       ControllerInterface c = new SystemController();
       try {

@@ -111,6 +111,7 @@ public class SystemController implements ControllerInterface {
 		da.saveBook(book);
 		loger.info("....................");
 		loger.info("End book checkout process.......");
+		loger.info("checkout : "+member.toString());
 		return true;
 	}
 	
@@ -124,5 +125,16 @@ public class SystemController implements ControllerInterface {
 		Book book = bookSet.get(isbn); 
 		
 		return book;
+	}
+	@Override
+	public LibraryMember findMemeber(String memberId) throws MemberNotFoundException {
+		LibraryMember libraryMember;
+		DataAccess da = new DataAccessFacade();
+		HashMap<String, LibraryMember> memeberList = da.readMemberMap(); 
+		
+		if(!memeberList.containsKey(memberId))
+			throw new MemberNotFoundException("Sorry, Library Memeber not foudd");
+	
+		return memeberList.get(memberId);
 	}
 }

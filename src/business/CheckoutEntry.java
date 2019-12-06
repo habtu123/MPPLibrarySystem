@@ -4,7 +4,8 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Date;
 
-public class CheckoutEntry implements Serializable {
+public class CheckoutEntry  implements Serializable {
+	private static final long serialVersionUID = 3665880920647848288L;
 	 private BookCopy book; 
 	 private LocalDate checkoutDate; 
 	 private LocalDate dueDate; 
