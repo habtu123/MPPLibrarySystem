@@ -54,6 +54,18 @@ public class LoginController {
 				LibrarianWindow.INSTANCE.show();
 				LoginWindow.INSTANCE.hide();
 			}
+			
+			else if(SystemController.currentAuth.equals(Auth.BOTH)) {
+				
+				if(!SystemWindow.INSTANCE.isInitialized()) {
+						SystemWindow.INSTANCE.init();
+					}
+					LoginWindow.INSTANCE.clear(); 
+					SystemWindow.INSTANCE.clear();
+					SystemWindow.INSTANCE.show();
+					LoginWindow.INSTANCE.hide();
+				}
+			
 			}
     	
     	 catch(LoginException ex) {
