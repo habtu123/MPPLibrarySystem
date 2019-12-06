@@ -30,12 +30,14 @@ public class MemberController {
       if(emptyFields(new String[] {memberIdTxt.getText().trim(), firstnameTxt.getText().trim(), 
     		  lastnameTxt.getText().trim(), phonoTxt.getText().trim()})) {
     	  actiontarget.setText("Empty LibraryMember fields");
+    	  actiontarget.setStyle("-fx-text-fill: red;");
     	  throw new IOException("Empty LibraryMember fields");
       }
       
       if(emptyFields(new String[] {streetTxt.getText().trim(), cityTxt.getText().trim(), 
     		  stateTxt.getText().trim(), zipTxt.getText().trim()})) {
     	  actiontarget.setText("Empty addreess fields");
+    	  actiontarget.setStyle("-fx-text-fill: red;");
     	  throw new IOException("Empty addreess fields");
       }
       
@@ -46,8 +48,11 @@ public class MemberController {
       ControllerInterface c = new SystemController();
       try {
 		c.addMember(newMember);
+		actiontarget.setText("Member added successfully");
+		actiontarget.setStyle("-fx-text-fill: blue;");
 	} catch (LibrarySystemException e) {
 		 actiontarget.setText(e.getMessage());
+		 actiontarget.setStyle("-fx-text-fill: red;");
 	}
   	}
 
