@@ -13,7 +13,7 @@
 	hgap="10" vgap="10">
 	<padding><Insets top="25" right="25" bottom="10" left="25"/></padding>
         
-     <GridPane fx:id="pruebaGrid" style=" -fx-border-color: black; -fx-border-width: 2;">
+     <GridPane fx:id="pruebaGrid" style=" -fx-border-color: black; -fx-border-width: 2; ">
 		<Text text="Person Data" GridPane.columnIndex="0"
 			GridPane.rowIndex="0" GridPane.columnSpan="1" />
 		<Label text="Member Id:"
@@ -78,5 +78,6 @@
         />
 	</HBox>
 
-		<Label  GridPane.columnIndex="1" GridPane.rowIndex="6" fx:id="actiontarget" StyleClass="alert, alert-danger" visible="false" />
+		<Label  GridPane.columnIndex="0" GridPane.rowIndex="9" fx:id="actiontarget" StyleClass="alert, alert-danger"/>
+		
 </GridPane>
