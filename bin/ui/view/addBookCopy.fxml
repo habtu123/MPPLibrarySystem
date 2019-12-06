@@ -13,7 +13,7 @@
 	<padding>
 		<Insets top="25" right="25" bottom="10" left="25" />
 	</padding>
-	<Text text="Welcome" GridPane.columnIndex="0"
+	<Text text="Add New Book" GridPane.columnIndex="0"
 		GridPane.rowIndex="0" GridPane.columnSpan="2" />
 
 	<Label text="ISBN:" GridPane.columnIndex="0"
@@ -23,6 +23,10 @@
 		
 	<Label GridPane.columnIndex="1" GridPane.rowIndex="6"
 		fx:id="actiontarget" StyleClass="alert, alert-danger" visible="false" />
-	<Button text="Add Book Copy" styleClass="sidebar-button"
+	<Button text="Add Book Copy" styleClass="sidebar-button" GridPane.columnIndex="1" GridPane.rowIndex="2"
 		id="addBookCopy" onAction="#handleAddBookCopy"></Button>
+		
+		<stylesheets>
+		    <URL value="@style/bootstrapfx.css" />
+		</stylesheets>
 </GridPane>
