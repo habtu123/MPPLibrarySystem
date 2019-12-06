@@ -40,11 +40,7 @@
 	 
 	    <TextField fx:id="phonoTxt" 
 	        GridPane.columnIndex="1" GridPane.rowIndex="5"/>
-	        <!-- 
-    </GridPane>
-    
-    <GridPane fx:id="pruebaGrid1" style=" -fx-border-color: black; -fx-border-width: 2;">
-     -->
+	        
 		<Text text="Address" GridPane.columnIndex="3"
 			GridPane.rowIndex="0" GridPane.columnSpan="3" />
 		<Label text="Street"
@@ -69,13 +65,10 @@
 	        GridPane.columnIndex="3" GridPane.rowIndex="5"/>
 	 
 	    <TextField fx:id="zipTxt" 
-	        GridPane.columnIndex="4" GridPane.rowIndex="5"/><!-- 
-    </GridPane>
-     -->
-        <!-- onAction="#handleSubmitButtonAction"  -->
+	        GridPane.columnIndex="4" GridPane.rowIndex="5"/>
     <HBox spacing="10" alignment="bottom_right" 
         GridPane.columnIndex="4" GridPane.rowIndex="8">
-        <Button text="Sign In" styleClass="btn btn-primary"    
+        <Button text="Submit" styleClass="btn btn-primary"    
         onAction="#handleAddNewmemberAction"
         />
 	</HBox>

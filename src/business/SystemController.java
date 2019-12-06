@@ -70,7 +70,7 @@ public class SystemController implements ControllerInterface {
 
 		loger.info("member to be added "+newMember.getMemberId());
 		da.saveNewMember(newMember);
-		loger.info("End addBooCopy started.....");
+		loger.info("End addMember started.....");
 	}
 	
 	private boolean existMember(HashMap<String, LibraryMember> members, LibraryMember newMember) {
@@ -78,6 +78,30 @@ public class SystemController implements ControllerInterface {
 		for (Map.Entry<String, LibraryMember> entry : members.entrySet())  {
             libraryMember = entry.getValue();
             if(libraryMember.getMemberId().equals(newMember.getMemberId()))
+            	return true;
+		}
+		return false;
+	}
+	@Override
+	public void addBook(Book book) throws LibrarySystemException {
+		loger.info("Start addMember .....");
+
+		DataAccess da = new DataAccessFacade();
+		HashMap<String, Book> books = da.readBooksMap();
+		if(existBook(books, book)) {
+			throw new LibrarySystemException("Book already exist"); 
+		}
+
+		loger.info("book to be added "+book.getIsbn());
+		da.saveNewBook(book);
+		loger.info("End addBoo started.....");
+	}
+	
+	private boolean existBook(HashMap<String, Book> books, Book newBook) {
+		Book bookAux;
+		for (Map.Entry<String, Book> entry : books.entrySet())  {
+            bookAux = entry.getValue();
+            if(bookAux.getIsbn().equals(newBook.getIsbn()))
             	return true;
 		}
 		return false;
