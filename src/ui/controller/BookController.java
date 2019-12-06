@@ -1,7 +1,6 @@
 package ui.controller;
 
 import java.io.IOException;
-import java.util.List;
 
 import business.Address;
 import business.Author;
@@ -70,6 +69,12 @@ public class BookController {
 	    	  actiontarget.setStyle("-fx-text-fill: red;");
 	    	  throw new IOException("Empty book fields");
 	      }
+	      
+	      if(!LibrarianUtil.isNumericAtLeastOne(copiesTxt.getText().trim())) {
+	    	  actiontarget.setText("Insert number of copies");
+	    	  actiontarget.setStyle("-fx-text-fill: red;");
+	    	  throw new IOException("Insert number of copies");
+	      }
 	      if(tableView.getItems().size()==0) {
 	    	  actiontarget.setText("You must add at least one author");
 	    	  actiontarget.setStyle("-fx-text-fill: red;");
@@ -77,6 +82,9 @@ public class BookController {
 	      }
 	      
 	      Book book = new Book(isbnTxt.getText().trim(), titleTxt.getText().trim(), Integer.valueOf(checkoutTxt.getText().trim()), tableView.getItems());
+	      for(int i = 0; i < Integer.valueOf(copiesTxt.getText().trim()); i++) {
+	    	  book.addCopy();
+	      }
 	      ControllerInterface c = new SystemController();
 	      
 	      try {
@@ -87,6 +95,6 @@ public class BookController {
 			 actiontarget.setText(e.getMessage());
 			 actiontarget.setStyle("-fx-text-fill: red;");
 		}
-	  	}
+	  }
   
 }
