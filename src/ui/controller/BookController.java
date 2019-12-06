@@ -70,7 +70,7 @@ public class BookController {
 	    	  throw new IOException("Empty book fields");
 	      }
 	      
-	      if(!LibrarianUtil.isNumeric(copiesTxt.getText().trim())) {
+	      if(!LibrarianUtil.isNumericAtLeastOne(copiesTxt.getText().trim())) {
 	    	  actiontarget.setText("Insert number of copies");
 	    	  actiontarget.setStyle("-fx-text-fill: red;");
 	    	  throw new IOException("Insert number of copies");

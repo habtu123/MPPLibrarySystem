@@ -15,7 +15,7 @@ public class LibrarianUtil {
 	 * @param string
 	 * @return
 	 */
-	public static boolean isNumeric(String string) {
+	public static boolean isNumericAtLeastOne(String string) {
 		return string.matches("[1-9]+[0-9]*");
 	}
 }
