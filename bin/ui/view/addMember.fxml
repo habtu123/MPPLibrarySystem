@@ -10,10 +10,11 @@
 <!-- fx:controller="fxmlexample.FXMLExampleController" -->
 <GridPane fx:id="paneMemberScreen" fx:controller="ui.controller.MemberController"
 	styleClass="page" xmlns:fx="http://javafx.com/fxml" alignment="center"
-	hgap="10" vgap="10">
-	<padding><Insets top="25" right="25" bottom="10" left="25"/></padding>
-        
+	hgap="20" vgap="10">
+	<padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+     <!--    
      <GridPane fx:id="pruebaGrid" style=" -fx-border-color: black; -fx-border-width: 2; ">
+      -->
 		<Text text="Person Data" GridPane.columnIndex="0"
 			GridPane.rowIndex="0" GridPane.columnSpan="1" />
 		<Label text="Member Id:"
@@ -39,11 +40,7 @@
 	 
 	    <TextField fx:id="phonoTxt" 
 	        GridPane.columnIndex="1" GridPane.rowIndex="5"/>
-	        <!-- 
-    </GridPane>
-    
-    <GridPane fx:id="pruebaGrid1" style=" -fx-border-color: black; -fx-border-width: 2;">
-     -->
+	        
 		<Text text="Address" GridPane.columnIndex="3"
 			GridPane.rowIndex="0" GridPane.columnSpan="3" />
 		<Label text="Street"
@@ -69,15 +66,16 @@
 	 
 	    <TextField fx:id="zipTxt" 
 	        GridPane.columnIndex="4" GridPane.rowIndex="5"/>
-    </GridPane>
-        <!-- onAction="#handleSubmitButtonAction"  -->
     <HBox spacing="10" alignment="bottom_right" 
-        GridPane.columnIndex="1" GridPane.rowIndex="4">
-        <Button text="Sign In" styleClass="btn btn-primary"    
+        GridPane.columnIndex="4" GridPane.rowIndex="8">
+        <Button text="Submit" styleClass="btn btn-primary"    
         onAction="#handleAddNewmemberAction"
         />
 	</HBox>
 
+<HBox spacing="10" alignment="bottom_right" 
+        GridPane.columnIndex="4" GridPane.rowIndex="10">
 		<Label  GridPane.columnIndex="0" GridPane.rowIndex="9" fx:id="actiontarget" StyleClass="alert, alert-danger"/>
+	</HBox>
 		
 </GridPane>

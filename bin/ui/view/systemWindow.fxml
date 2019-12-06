@@ -56,11 +56,12 @@
             <children>
                 <Button text="Add New Member" styleClass="sidebar-button" id="addNewMemeber" onAction="#addNewMemeberAction"></Button>
                 <Button text="Add A Copy" styleClass="sidebar-button" id="addBookCopy" onAction="#addNewCopyAction"></Button>
+                <Button text="Add A Book" styleClass="sidebar-button" id="addNewBook" onAction="#addNewBookAction"></Button>
             </children>
         </VBox>
     </left>
     <center>
-        
+        <!-- HERE THE CONTENT -->
     </center>
     <bottom>
         <HBox id="footer-section">

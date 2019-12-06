@@ -45,12 +45,11 @@ public class LibrarianController {
     
     @FXML protected void handleCheckoutBook(ActionEvent event) throws IOException{
     	logger.info("Start book checkout"+memeberID);
-    	ControllerInterface c = new SystemController(); 
-    	
+    	ControllerInterface c = new SystemController();    	
     	try {
     		Boolean checkedout = c.checkoutBook(memeberID.getText(), bookISBN.getText());
     		if(checkedout)
-    			logger.info("Book checked out successfully");
+    		logger.info("Book checked out successfully");
 		} catch (BookNotFoundException e) {
 			actiontarget.setVisible(true);
 			actiontarget.setText(e.getMessage()); 

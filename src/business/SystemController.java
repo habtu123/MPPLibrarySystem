@@ -73,7 +73,7 @@ public class SystemController implements ControllerInterface {
 
 		loger.info("member to be added "+newMember.getMemberId());
 		da.saveNewMember(newMember);
-		loger.info("End addBooCopy started.....");
+		loger.info("End addMember started.....");
 	}
 	
 	private boolean existMember(HashMap<String, LibraryMember> members, LibraryMember newMember) {
@@ -86,6 +86,29 @@ public class SystemController implements ControllerInterface {
 		return false;
 	}
 	@Override
+	public void addBook(Book book) throws LibrarySystemException {
+		loger.info("Start addMember .....");
+
+		DataAccess da = new DataAccessFacade();
+		HashMap<String, Book> books = da.readBooksMap();
+		if(existBook(books, book)) {
+			throw new LibrarySystemException("Book already exist"); 
+		}
+
+		loger.info("book to be added "+book.getIsbn());
+		da.saveNewBook(book);
+		loger.info("End addBoo started.....");
+	}
+	
+	private boolean existBook(HashMap<String, Book> books, Book newBook) {
+		Book bookAux;
+		for (Map.Entry<String, Book> entry : books.entrySet())  {
+            bookAux = entry.getValue();
+            if(bookAux.getIsbn().equals(newBook.getIsbn()))
+            	return true;
+		}
+		return false;
+	}
 	public Boolean checkoutBook(String memberId, String isbn) throws BookNotFoundException, MemberNotFoundException {
 		loger.info("Start book checkout process");
 		loger.info("....................");
@@ -104,11 +127,12 @@ public class SystemController implements ControllerInterface {
 			throw new BookNotFoundException("Book is not availbale"); 
 		
 		BookCopy bookTobeCheckedOut = book.getNextAvailableCopy(); 
+		loger.info("book copy:"+bookTobeCheckedOut.toString()); 
 		int maxCheckeoutDays = book.getMaxCheckoutLength(); 
 		
 		member.checkout(bookTobeCheckedOut, LocalDate.now(), (long)maxCheckeoutDays);
 		da.saveNewMember(member);
-		da.saveBook(book);
+		da.saveNewBook(book);
 		loger.info("....................");
 		loger.info("End book checkout process.......");
 		loger.info("checkout : "+member.toString());

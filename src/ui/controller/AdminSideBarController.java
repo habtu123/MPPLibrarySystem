@@ -30,6 +30,13 @@ public class AdminSideBarController {
   	
   }
     
+    @FXML protected void addNewBookAction(ActionEvent event) throws IOException {
+//      actiontarget.setText("Sign in button pressed " + usernameTxt.getText());
+  	GridPane pane = FXMLLoader.load(getClass().getResource("../view/addNewBook.fxml"));
+  	contentBars.setCenter(pane);
+  	
+  }
+    
     @FXML protected void handleLogoutButtonAction(ActionEvent event) throws IOException {
 //      actiontarget.setText("Sign in button pressed " + usernameTxt.getText());
   	System.out.println("logout pressed");

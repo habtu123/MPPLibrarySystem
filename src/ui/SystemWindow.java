@@ -7,7 +7,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -23,7 +22,7 @@ public class SystemWindow extends Stage implements LibWindow {
 		Parent root = null;
 		   try {
 			root = FXMLLoader.load(getClass().getResource("./view/systemWindow.fxml"));
-			Scene scene = new Scene(root, 800, 500); 
+			Scene scene = new Scene(root, 1000, 500); 
 			
 			if(SystemController.currentAuth.equals(Auth.BOTH)) {
 				 //Button both = (Button)root.lookup("#sidebar-button");
