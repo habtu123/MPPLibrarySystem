@@ -40,8 +40,8 @@
     <left>
         <VBox styleClass="sidebar-section" id="both" >
             <children>
-                <Button text="Search Book" styleClass="sidebar-button" id="addNewMemeberBoth" ></Button>
-                <Button text="Checkout Book"  styleClass="sidebar-button" id="checkoutBookBoth" ></Button>
+                <Button text="Search Book" styleClass="sidebar-button" id="searchBook"  ></Button>
+                <Button text="Checkout Book"  styleClass="sidebar-button" id="checkoutBookBoth" onAction="#handleAddNewMemeberBoth" ></Button>
                
             </children>
         </VBox>

@@ -43,7 +43,8 @@ public class Start extends Application {
 		LoginWindow.INSTANCE,
 		AllMembersWindow.INSTANCE,	
 		AllBooksWindow.INSTANCE,
-		SystemWindow.INSTANCE
+		SystemWindow.INSTANCE, 
+		LibrarianWindow.INSTANCE, 
 	};
 	
 	public static void hideAllWindows() {
