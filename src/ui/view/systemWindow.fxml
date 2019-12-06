@@ -60,7 +60,7 @@
         </VBox>
     </left>
     <center>
-        
+        <!-- HERE THE CONTENT -->
     </center>
     <bottom>
         <HBox id="footer-section">
