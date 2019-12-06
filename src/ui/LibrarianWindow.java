@@ -29,7 +29,6 @@ public class LibrarianWindow extends Stage implements LibWindow {
 
 	@Override
 	public boolean isInitialized() {
-		// TODO Auto-generated method stub
 		return isInitialized;
 	}
 

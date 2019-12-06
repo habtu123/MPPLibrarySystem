@@ -61,11 +61,12 @@ public class DataAccessFacade implements DataAccess {
 	///// - used just once at startup  
 	
 		
-	static void loadBookMap(List<Book> bookList) {
+	public static void loadBookMap(List<Book> bookList) {
 		HashMap<String, Book> books = new HashMap<String, Book>();
 		bookList.forEach(book -> books.put(book.getIsbn(), book));
 		saveToStorage(StorageType.BOOKS, books);
 	}
+	
 	static void loadUserMap(List<User> userList) {
 		HashMap<String, User> users = new HashMap<String, User>();
 		userList.forEach(user -> users.put(user.getId(), user));
@@ -143,6 +144,18 @@ public class DataAccessFacade implements DataAccess {
 			return "(" + first.toString() + ", " + second.toString() + ")";
 		}
 		private static final long serialVersionUID = 5399827794066637059L;
+	}
+
+
+
+	@Override
+	public void saveBook(Book book) {
+		HashMap<String, Book> books = new HashMap<String, Book>();
+		books =readBooksMap(); 
+		books.remove(book.getIsbn()); 
+		books.put(book.getIsbn(), book); 
+		saveToStorage(StorageType.BOOKS, books);
+		
 	}
 	
 }

@@ -1,11 +1,14 @@
 package business;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
 
+import business.exceptions.BookNotFoundException;
+import business.exceptions.MemberNotFoundException;
 import dataaccess.Auth;
 import dataaccess.DataAccess;
 import dataaccess.DataAccessFacade;
@@ -81,5 +84,45 @@ public class SystemController implements ControllerInterface {
             	return true;
 		}
 		return false;
+	}
+	@Override
+	public Boolean checkoutBook(String memberId, String isbn) throws BookNotFoundException, MemberNotFoundException {
+		loger.info("Start book checkout process");
+		loger.info("....................");
+		DataAccess da = new DataAccessFacade();
+		HashMap<String, LibraryMember> memeberList = da.readMemberMap(); 
+		
+		if(!memeberList.containsKey(memberId))
+			throw new MemberNotFoundException("Sorry, Library Memeber not foudd"); 
+		
+		LibraryMember member = memeberList.get(memberId); 
+		//check if the book exists
+		Book book = findBook(isbn); 
+		
+		//check if the book is available for checkout
+		if(!book.isAvailable())
+			throw new BookNotFoundException("Book is not availbale"); 
+		
+		BookCopy bookTobeCheckedOut = book.getNextAvailableCopy(); 
+		int maxCheckeoutDays = book.getMaxCheckoutLength(); 
+		
+		member.checkout(bookTobeCheckedOut, LocalDate.now(), (long)maxCheckeoutDays);
+		da.saveNewMember(member);
+		da.saveBook(book);
+		loger.info("....................");
+		loger.info("End book checkout process.......");
+		return true;
+	}
+	
+	Book findBook(String isbn) throws BookNotFoundException {
+		List<String> books = allBookIds(); 
+		if(!books.contains(isbn)) {
+			throw new BookNotFoundException("Book not Found"); 
+		}
+		DataAccess da = new DataAccessFacade();
+		HashMap<String, Book> bookSet = da.readBooksMap(); 
+		Book book = bookSet.get(isbn); 
+		
+		return book;
 	}
 }
