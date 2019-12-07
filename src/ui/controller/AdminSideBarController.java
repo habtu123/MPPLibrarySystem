@@ -64,6 +64,13 @@ public class AdminSideBarController {
 		GridPane pane = FXMLLoader.load(getClass().getResource("../view/checkoutBook.fxml"));
 		contentBars.setCenter(pane);
 	}
+	
+	@FXML
+	protected void showAllMemberidAction(ActionEvent event) throws IOException {
+		GridPane pane = FXMLLoader.load(getClass().getResource("../view/AllMember.fxml"));
+		contentBars.setCenter(pane);
+	}
+	
 	@FXML
 	protected void handleLogoutButtonAction(ActionEvent event) throws IOException {
 //      actiontarget.setText("Sign in button pressed " + usernameTxt.getText());
