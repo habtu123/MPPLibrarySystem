@@ -37,18 +37,9 @@ public class DataAccessFacade implements DataAccess {
 	@Override
 	public void saveNewBook(Book book) {
 		HashMap<String, Book> books = readBooksMap();
-		logger.info("Number of books originally availbale: "+books.size()); 
-		books.put(book.getIsbn(), book);
-		
-		List<Book> bookList = new ArrayList<Book>(); 
-		for (Book book2 : bookList) {
-			
-		}
-		books.forEach((k,v)->{
-			bookList.add(v); 
-		});
-		logger.info("Number of books after add: "+bookList.size()); 
-		loadBookMap(bookList);	
+		String bookId = book.getIsbn();
+		books.put(bookId, book);
+		saveToStorage(StorageType.BOOKS, books);	
 	}
 	
 	@SuppressWarnings("unchecked")

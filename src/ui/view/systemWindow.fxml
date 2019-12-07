@@ -38,7 +38,6 @@
         </BorderPane>
     </top>
     <left>
-       
         
             <VBox styleClass="sidebar-section" id="admin">
             <children>
