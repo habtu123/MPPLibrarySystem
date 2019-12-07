@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.text.TextFlow?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.cell.*?> 
+<?import javafx.collections.*?> 
+<?import fxmltableview.*?>
+<!-- fx:controller="fxmlexample.FXMLExampleController" -->
+<GridPane fx:id="paneBookScreen"
+	fx:controller="ui.controller.AdminSideBarController" styleClass="page"
+	xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="20"
+	vgap="10">
+	<padding>
+		<Insets top="10" right="10" bottom="10" left="10" />
+	</padding>
+	<!-- ISBN, title, authors, maximum checkout length, number of copies) -->
+
+
+
+	<TableView fx:id="booksTable" GridPane.columnIndex="1"
+		GridPane.rowIndex="8">
+		<columns>
+			<TableColumn text="ISBN">
+				<cellValueFactory>
+					<PropertyValueFactory property="isbn" />
+				</cellValueFactory>
+			</TableColumn>
+			<TableColumn text="Book Title">
+				<cellValueFactory>
+					<PropertyValueFactory property="bookTitle" />
+				</cellValueFactory>
+			</TableColumn>
+		</columns>
+	</TableView>
+
+	<HBox spacing="10" GridPane.columnIndex="2" GridPane.rowIndex="10">
+		<Label GridPane.columnIndex="0" GridPane.rowIndex="9"
+			fx:id="actiontarget" StyleClass="alert, alert-danger" />
+	</HBox>
+
+</GridPane>

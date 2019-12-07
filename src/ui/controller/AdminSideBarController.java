@@ -1,9 +1,12 @@
 package ui.controller;
 
 import java.io.IOException;
+import java.util.Collections;
 import java.util.List;
 import java.util.logging.Logger;
 
+import business.Author;
+import business.Book;
 import business.CheckoutEntry;
 import business.ControllerInterface;
 import business.SystemController;
@@ -11,10 +14,13 @@ import business.exceptions.BookNotFoundException;
 import business.exceptions.MemberNotFoundException;
 import dataaccess.DataAccess;
 import dataaccess.DataAccessFacade;
+import dataaccess.dto.BookListDto;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
@@ -34,6 +40,8 @@ public class AdminSideBarController {
 	private TextField bookISBN;
 
 	@FXML private Label actiontarget; 
+	
+	@FXML private TableView<BookListDto> booksTable;
 	
 	@FXML
 	protected void addNewMemeberAction(ActionEvent event) throws IOException {
@@ -100,6 +108,29 @@ public class AdminSideBarController {
 			actiontarget.setVisible(true);
 			actiontarget.setText(e.getMessage());
 		}
+	}
+	
+	@FXML
+	protected void listALlBooks(ActionEvent event) throws IOException {
+		ControllerInterface ci = new SystemController();
+		List<Book> books = ci.findAllBooks();
+		
+		
+		TableView<BookListDto> data = new TableView<BookListDto>();
+		ObservableList<BookListDto> bookList = booksTable.getItems(); 
+		for(Book b: books) {
+			bookList.add(new BookListDto(b.getIsbn(), b.getIsbn())); 
+		}
+		booksTable = (TableView<BookListDto>) bookList; 
+		GridPane pane = FXMLLoader.load(getClass().getResource("../view/listAllBooks.fxml"));
+		contentBars.setCenter(pane);
+		//Collections.sort(ids);
+//		StringBuilder sb = new StringBuilder();
+//		for(String s: ids) {
+//			sb.append(s + "\n");
+//		}
+		
+		//logger.info(sb.toString());
 	}
 
 }

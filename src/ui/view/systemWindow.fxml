@@ -45,6 +45,7 @@
                 <Button text="Add A Copy" styleClass="sidebar-button" id="addBookCopy" onAction="#addNewCopyAction"></Button>
                 <Button text="Add A Book" styleClass="sidebar-button" id="addNewBook" onAction="#addNewBookAction"></Button>
                 <Button text="Checkout Book"  styleClass="sidebar-button" id="checkoutBookBoth"  onAction="#checkoutBookBoth"></Button>
+                <Button text="List All Books"  styleClass="sidebar-button" id="listAllBooks"  onAction="#listALlBooks"></Button>
             </children>
         </VBox>
     </left>

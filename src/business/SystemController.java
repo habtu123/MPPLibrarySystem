@@ -161,4 +161,11 @@ public class SystemController implements ControllerInterface {
 	
 		return memeberList.get(memberId);
 	}
+	@Override
+	public List<Book> findAllBooks() {
+		DataAccess da = new DataAccessFacade();
+		List<Book> retval = new ArrayList<>();
+		retval.addAll(da.readBooksMap().values());
+		return retval;
+	}
 }

@@ -15,5 +15,5 @@ public interface ControllerInterface {
 	public List<CheckoutEntry> checkoutBook(String memberId, String isbn) throws BookNotFoundException, MemberNotFoundException;
 	public LibraryMember findMemeber(String memberId) throws MemberNotFoundException; 
 	public void addBook(Book book) throws LibrarySystemException; 
-	
+	public List<Book> findAllBooks(); 
 }
