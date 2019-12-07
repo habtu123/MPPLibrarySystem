@@ -6,6 +6,7 @@ import java.io.Serializable;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.logging.Logger;
@@ -36,9 +37,18 @@ public class DataAccessFacade implements DataAccess {
 	@Override
 	public void saveNewBook(Book book) {
 		HashMap<String, Book> books = readBooksMap();
-		String bookId = book.getIsbn();
-		books.put(bookId, book);
-		saveToStorage(StorageType.BOOKS, book);	
+		logger.info("Number of books originally availbale: "+books.size()); 
+		books.put(book.getIsbn(), book);
+		
+		List<Book> bookList = new ArrayList<Book>(); 
+		for (Book book2 : bookList) {
+			
+		}
+		books.forEach((k,v)->{
+			bookList.add(v); 
+		});
+		logger.info("Number of books after add: "+bookList.size()); 
+		loadBookMap(bookList);	
 	}
 	
 	@SuppressWarnings("unchecked")

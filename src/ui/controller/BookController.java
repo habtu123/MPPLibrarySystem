@@ -1,10 +1,12 @@
 package ui.controller;
 
 import java.io.IOException;
+import java.util.logging.Logger;
 
 import business.Address;
 import business.Author;
 import business.Book;
+import business.CheckoutRecord;
 import business.ControllerInterface;
 import business.LibrarySystemException;
 import business.SystemController;
@@ -17,6 +19,7 @@ import javafx.scene.control.TextField;
 import util.LibrarianUtil;
 
 public class BookController {
+	Logger logger = Logger.getLogger(BookController.class.getName()); 
 	@FXML protected TextField bookISBN; 
 	@FXML protected Label actiontarget; 
 	@FXML protected void handleAddBookCopy(ActionEvent event) throws IOException {
@@ -87,6 +90,7 @@ public class BookController {
 	    	  throw new IOException("You must add at least one author");
 	      }
 	      
+	      logger.info("list of authors: "+authorsTable.getItems().toString());
 	      Book book = new Book(isbnTxt.getText().trim(), titleTxt.getText().trim(), Integer.valueOf(checkoutTxt.getText().trim()), authorsTable.getItems());
 	      for(int i = 0; i < Integer.valueOf(copiesTxt.getText().trim()); i++) {
 	    	  book.addCopy();

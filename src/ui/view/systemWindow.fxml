@@ -38,25 +38,14 @@
         </BorderPane>
     </top>
     <left>
-        <VBox styleClass="sidebar-section" id="both" >
-            <children>
-                <Button text="Add New Member" styleClass="sidebar-button" id="addNewMemeberBoth" ></Button>
-                <Button text="Add A Copy"  styleClass="sidebar-button" id="addCopyBoth" ></Button>
-                <Button text="Checkout Book"  styleClass="sidebar-button" id="checkoutBookBoth" ></Button>
-               
-            </children>
-        </VBox>
+       
         
-          <VBox styleClass="sidebar-section" id="lib">
-            <children>
-                <Button text="Checkout Book" styleClass="sidebar-button" id="checkout-book" ></Button>
-            </children>
-             </VBox>
             <VBox styleClass="sidebar-section" id="admin">
             <children>
                 <Button text="Add New Member" styleClass="sidebar-button" id="addNewMemeber" onAction="#addNewMemeberAction"></Button>
                 <Button text="Add A Copy" styleClass="sidebar-button" id="addBookCopy" onAction="#addNewCopyAction"></Button>
                 <Button text="Add A Book" styleClass="sidebar-button" id="addNewBook" onAction="#addNewBookAction"></Button>
+                <Button text="Checkout Book"  styleClass="sidebar-button" id="checkoutBookBoth"  onAction="#checkoutBookBoth"></Button>
             </children>
         </VBox>
     </left>
