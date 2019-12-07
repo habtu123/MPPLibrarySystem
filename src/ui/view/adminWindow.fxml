@@ -13,7 +13,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
 <!-- fx:controller="fxmlexample.FXMLExampleController"  -->
-<BorderPane fx:controller="ui.controller.AdminSideBarController" xmlns:fx="http://javafx.com/fxml" fx:id="contentBars">
+<BorderPane fx:controller="ui.controller.AdminSideBarController" xmlns:fx="http://javafx.com/fxml" fx:id="contentBars" styleClass="bg-info">
     <top>
         <BorderPane styleClass="header-section">
             <left>
@@ -72,5 +72,8 @@
     </bottom>
     <stylesheets>
 		    <URL value="@style/library.css" />
-		</stylesheets>
+	</stylesheets>
+	 <stylesheets>
+		    <URL value="@style/bootstrapfx.css" />
+	</stylesheets>
 </BorderPane>

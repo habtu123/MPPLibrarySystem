@@ -6,7 +6,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
 public class AdminWindow extends Stage implements LibWindow {
 	
 	public static final  AdminWindow INSTANCE = new AdminWindow();
