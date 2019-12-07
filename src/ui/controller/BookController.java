@@ -1,14 +1,13 @@
 package ui.controller;
 
 import java.io.IOException;
-import java.util.logging.Logger;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 import business.Address;
 import business.Author;
 import business.Book;
-import business.CheckoutRecord;
 import business.ControllerInterface;
 import business.LibrarySystemException;
 import business.SystemController;
