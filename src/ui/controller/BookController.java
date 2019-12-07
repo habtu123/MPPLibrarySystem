@@ -1,6 +1,8 @@
 package ui.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import business.Address;
 import business.Author;
@@ -87,7 +89,14 @@ public class BookController {
 	    	  throw new IOException("You must add at least one author");
 	      }
 	      
-	      Book book = new Book(isbnTxt.getText().trim(), titleTxt.getText().trim(), Integer.valueOf(checkoutTxt.getText().trim()), authorsTable.getItems());
+	      List<Author> authors = new ArrayList<Author>();
+	      Author autAux;
+	      for(int i = 0; i < authorsTable.getItems().size(); i++) {
+	    	  autAux = authorsTable.getItems().get(i);
+	    	  authors.add(autAux);
+	      }
+	      Book book = new Book(isbnTxt.getText().trim(), titleTxt.getText().trim(), Integer.valueOf(checkoutTxt.getText().trim()), 
+	    		  authors);
 	      for(int i = 0; i < Integer.valueOf(copiesTxt.getText().trim()); i++) {
 	    	  book.addCopy();
 	      }
