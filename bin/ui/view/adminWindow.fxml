@@ -13,7 +13,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
 <!-- fx:controller="fxmlexample.FXMLExampleController"  -->
-<BorderPane fx:controller="ui.controller.AdminSideBarController" xmlns:fx="http://javafx.com/fxml" fx:id="contentBars" styleClass="bg-info">
+<BorderPane fx:controller="ui.controller.AdminSideBarController" xmlns:fx="http://javafx.com/fxml" fx:id="contentBars">
     <top>
         <BorderPane styleClass="header-section">
             <left>
@@ -38,25 +38,13 @@
         </BorderPane>
     </top>
     <left>
-        <VBox styleClass="sidebar-section" id="both" >
-            <children>
-                <Button text="Add New Member" styleClass="sidebar-button" id="addNewMemeberBoth" ></Button>
-                <Button text="Add A Copy"  styleClass="sidebar-button" id="addCopyBoth" ></Button>
-                <Button text="Checkout Book"  styleClass="sidebar-button" id="checkoutBookBoth" ></Button>
-               
-            </children>
-        </VBox>
-        
-          <VBox styleClass="sidebar-section" id="lib">
-            <children>
-                <Button text="Checkout Book" styleClass="sidebar-button" id="checkout-book" ></Button>
-            </children>
-             </VBox>
-            <VBox styleClass="sidebar-section" id="admin">
+         <VBox styleClass="sidebar-section" id="admin">
             <children>
                 <Button text="Add New Member" styleClass="sidebar-button" id="addNewMemeber" onAction="#addNewMemeberAction"></Button>
                 <Button text="Add A Copy" styleClass="sidebar-button" id="addBookCopy" onAction="#addNewCopyAction"></Button>
-                <Button text="Add A Book" styleClass="sidebar-button" id="addNewBook" onAction="#addNewBookAction"></Button>
+                <Button text="Add A Book" styleClass="sidebar-button" id="addNewBook" onAction="#addNewBookAction"></Button>                
+                <Button text="List All Books"  styleClass="sidebar-button" id="listAllBooks"  onAction="#listALlBooks"></Button>
+                <Button text="All member id"  styleClass="sidebar-button" id="allMemberid"  onAction="#showAllMemberidAction"></Button>
             </children>
         </VBox>
     </left>
@@ -66,7 +54,7 @@
     <bottom>
         <HBox id="footer-section">
             <children>
-                <Label text="Copyright 2017 CalliCoder"></Label>
+                <Label text="MPP Library System Project, MUM December 2019"></Label>
             </children>
         </HBox>
     </bottom>

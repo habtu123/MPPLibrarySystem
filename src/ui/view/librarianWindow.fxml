@@ -44,6 +44,8 @@
             <children>
                 <Button text="Search Book" styleClass="sidebar-button" id="searchBook"  ></Button>
                 <Button text="Checkout Book"  styleClass="sidebar-button" id="checkoutBookBoth" onAction="#handleAddNewMemeberBoth" ></Button>
+                <Button text="List All Books"  styleClass="sidebar-button" id="listAllBooks"  onAction="#listALlBooks"></Button>
+                <Button text="All member id"  styleClass="sidebar-button" id="allMemberid"  onAction="#showAllMemberidAction"></Button>
                
             </children>
         </VBox>
@@ -57,7 +59,7 @@
     <bottom>
         <HBox id="footer-section">
             <children>
-                <Label text="Copyright 2017 CalliCoder"></Label>
+                <Label text="MPP Library System Project, MUM December 2019"></Label>
             </children>
         </HBox>
     </bottom>

@@ -74,12 +74,6 @@ public class AdminSideBarController {
 	}
 	
 	@FXML
-	protected void showAllMemberidAction(ActionEvent event) throws IOException {
-		GridPane pane = FXMLLoader.load(getClass().getResource("../view/AllMember.fxml"));
-		contentBars.setCenter(pane);
-	}
-	
-	@FXML
 	protected void handleLogoutButtonAction(ActionEvent event) throws IOException {
 //      actiontarget.setText("Sign in button pressed " + usernameTxt.getText());
 		System.out.println("logout pressed");
@@ -118,26 +112,16 @@ public class AdminSideBarController {
 	}
 	
 	@FXML
-	protected void listALlBooks(ActionEvent event) throws IOException {
-		ControllerInterface ci = new SystemController();
-		List<Book> books = ci.findAllBooks();
-		
-		
-		TableView<BookListDto> data = new TableView<BookListDto>();
-		ObservableList<BookListDto> bookList = booksTable.getItems(); 
-		for(Book b: books) {
-			bookList.add(new BookListDto(b.getIsbn(), b.getIsbn())); 
-		}
-		booksTable = (TableView<BookListDto>) bookList; 
-		GridPane pane = FXMLLoader.load(getClass().getResource("../view/listAllBooks.fxml"));
+	protected void showAllMemberidAction(ActionEvent event) throws IOException {
+		GridPane pane = FXMLLoader.load(getClass().getResource("../view/AllMember.fxml"));
 		contentBars.setCenter(pane);
-		//Collections.sort(ids);
-//		StringBuilder sb = new StringBuilder();
-//		for(String s: ids) {
-//			sb.append(s + "\n");
-//		}
-		
-		//logger.info(sb.toString());
+	}
+	
+	@FXML
+	protected void listALlBooks(ActionEvent event) throws IOException {
+		GridPane pane = FXMLLoader.load(getClass().getResource("../view/AllBooks.fxml"));
+		contentBars.setCenter(pane);
+	
 	}
 
 }

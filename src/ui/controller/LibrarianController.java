@@ -73,6 +73,19 @@ public class LibrarianController {
 		} 
     }
     
+
+	@FXML
+	protected void showAllMemberidAction(ActionEvent event) throws IOException {
+		GridPane pane = FXMLLoader.load(getClass().getResource("../view/AllMember.fxml"));
+		contentBars.setCenter(pane);
+	}
+	
+	@FXML
+	protected void listALlBooks(ActionEvent event) throws IOException {
+		GridPane pane = FXMLLoader.load(getClass().getResource("../view/AllBooks.fxml"));
+		contentBars.setCenter(pane);
+	
+	}
     
    
     

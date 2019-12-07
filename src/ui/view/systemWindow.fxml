@@ -56,7 +56,7 @@
     <bottom>
         <HBox id="footer-section">
             <children>
-                <Label text="Copyright 2017 CalliCoder"></Label>
+                <Label text="MPP Library System Project, MUM December 2019"></Label>
             </children>
         </HBox>
     </bottom>
