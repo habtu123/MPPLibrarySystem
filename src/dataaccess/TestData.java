@@ -51,6 +51,7 @@ public class TestData {
 	public void libraryMemberData() {
 		CheckoutRecord checkoutRecord = new CheckoutRecord(); 
 		
+		
 		LibraryMember libraryMember = new LibraryMember("1001", "Andy", "Rogers", "641-223-2211", addresses.get(4), checkoutRecord);
 		members.add(libraryMember);
 		libraryMember = new LibraryMember("1002", "Drew", "Stevens", "702-998-2414", addresses.get(5), checkoutRecord);

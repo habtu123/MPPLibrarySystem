@@ -109,14 +109,14 @@ public class SystemController implements ControllerInterface {
 		}
 		return false;
 	}
-	public Boolean checkoutBook(String memberId, String isbn) throws BookNotFoundException, MemberNotFoundException {
+	public List<CheckoutEntry> checkoutBook(String memberId, String isbn) throws BookNotFoundException, MemberNotFoundException {
 		loger.info("Start book checkout process");
 		loger.info("....................");
 		DataAccess da = new DataAccessFacade();
 		HashMap<String, LibraryMember> memeberList = da.readMemberMap(); 
 		
 		if(!memeberList.containsKey(memberId))
-			throw new MemberNotFoundException("Sorry, Library Memeber not foudd"); 
+			throw new MemberNotFoundException("Sorry, Library Memeber not found"); 
 		
 		LibraryMember member = memeberList.get(memberId); 
 		//check if the book exists
@@ -130,13 +130,13 @@ public class SystemController implements ControllerInterface {
 		loger.info("book copy:"+bookTobeCheckedOut.toString()); 
 		int maxCheckeoutDays = book.getMaxCheckoutLength(); 
 		
-		member.checkout(bookTobeCheckedOut, LocalDate.now(), (long)maxCheckeoutDays);
+		List<CheckoutEntry> checkoutHistory = member.checkout(bookTobeCheckedOut, LocalDate.now(), (long)maxCheckeoutDays);
 		da.saveNewMember(member);
-		da.saveNewBook(book);
+		//da.saveNewBook(book);
 		loger.info("....................");
 		loger.info("End book checkout process.......");
-		loger.info("checkout : "+member.toString());
-		return true;
+		loger.info("checkout complete: "+member.getFirstName() +"Book:"+member.getCheckoutRecord().getCheckoutEntry().get(0) );
+		return checkoutHistory; 
 	}
 	
 	Book findBook(String isbn) throws BookNotFoundException {

@@ -39,11 +39,13 @@ final public class LibraryMember extends Person implements Serializable {
 				", " + getTelephone() + " " + getAddress() +" Checkout Record:"+getCheckoutRecord().toString();
 	}
 
-	public void checkout(BookCopy bookCopy, LocalDate todayDate, long checkoutLength) {
+	public List<CheckoutEntry> checkout(BookCopy bookCopy, LocalDate todayDate, long checkoutLength) {
 		bookCopy.setAvailable(false);
 		CheckoutEntry checkoutEntry = new CheckoutEntry(bookCopy, LocalDate.now(), LocalDate.now().plusDays(checkoutLength)); 
-		CheckoutRecord checkoutRecord = new CheckoutRecord(); 
-		checkoutRecord.addCheckoutEntry(checkoutEntry);
+		this.checkoutRecord.addCheckoutEntry(checkoutEntry);
+		
+		return this.getCheckoutRecord().getCheckoutEntry(); 
+		
 	}
 	private static final long serialVersionUID = -2226197306790714013L;
 }

@@ -1,12 +1,16 @@
 package ui.controller;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.logging.Logger;
 
+import business.CheckoutEntry;
 import business.ControllerInterface;
 import business.SystemController;
 import business.exceptions.BookNotFoundException;
 import business.exceptions.MemberNotFoundException;
+import dataaccess.DataAccess;
+import dataaccess.DataAccessFacade;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -45,11 +49,21 @@ public class LibrarianController {
     
     @FXML protected void handleCheckoutBook(ActionEvent event) throws IOException{
     	logger.info("Start book checkout"+memeberID);
+    	DataAccess da = new DataAccessFacade(); 
+    	logger.info("original "+da.readBooksMap()); 
     	ControllerInterface c = new SystemController();    	
     	try {
-    		Boolean checkedout = c.checkoutBook(memeberID.getText(), bookISBN.getText());
-    		if(checkedout)
-    		logger.info("Book checked out successfully");
+    		List<CheckoutEntry> checkoutHistory = c.checkoutBook(memeberID.getText(), bookISBN.getText());
+    		if(!checkoutHistory.isEmpty()) {
+    			logger.info("Book checked out successfully");
+    			logger.info("checkout histroy"+checkoutHistory.size());
+    			
+    			for(CheckoutEntry ch:checkoutHistory)
+    			{
+    				System.out.println("Checked out book :"+ch.getBook().getBook().getTitle());
+    				System.out.println("Due date"+ ch.getCheckoutDate());
+    			}
+    		}
 		} catch (BookNotFoundException e) {
 			actiontarget.setVisible(true);
 			actiontarget.setText(e.getMessage()); 
