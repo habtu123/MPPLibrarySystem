@@ -42,6 +42,7 @@
             <children>
                 <Button text="Add New Member" styleClass="sidebar-button" id="addNewMemeberBoth" ></Button>
                 <Button text="Add A Copy"  styleClass="sidebar-button" id="addCopyBoth" ></Button>
+                <Button text="Add A Book" styleClass="sidebar-button" id="addNewBook" onAction="#addNewBookAction"></Button>
                 <Button text="Checkout Book"  styleClass="sidebar-button" id="checkoutBookBoth" ></Button>
                
             </children>
