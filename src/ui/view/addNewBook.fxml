@@ -32,12 +32,6 @@ number of copies)
 	 
 	    <TextField fx:id="titleTxt"
 	        GridPane.columnIndex="1" GridPane.rowIndex="3"/>
-	 
-	    <Label text="Authors:"
-	        GridPane.columnIndex="0" GridPane.rowIndex="4"/>
-	 
-	    <TextField fx:id="authorsTxt" 
-	        GridPane.columnIndex="1" GridPane.rowIndex="4"/>
 	        
 	    <Label text="Checkout Lenth:"
 	        GridPane.columnIndex="0" GridPane.rowIndex="5"/>
@@ -67,7 +61,7 @@ number of copies)
           <Button text="Add" onAction="#addAuthors"/>
      </HBox>
 	        
-	    <TableView fx:id="tableView" GridPane.columnIndex="1" 
+	    <TableView fx:id="authorsTable" GridPane.columnIndex="1" 
 	        GridPane.rowIndex="8">
 	        <columns>
 	          <TableColumn text="First Name">

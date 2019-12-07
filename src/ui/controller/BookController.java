@@ -39,19 +39,21 @@ public class BookController {
 	//Book elements
 	@FXML protected TextField isbnTxt; 
 	@FXML protected TextField titleTxt; 
-	@FXML protected TextField authorsTxt; 
 	@FXML protected TextField checkoutTxt; 
 	@FXML protected TextField copiesTxt; 
 	
-	@FXML private TableView<Author> tableView;
+	@FXML private TableView<Author> authorsTable;
     @FXML private TextField firstNameField;
     @FXML private TextField lastNameField;
     @FXML private TextField phoneField;
     @FXML private TextField bioField;
 	
-	@FXML
-    protected void addAuthors(ActionEvent event) {
-        ObservableList<Author> data = tableView.getItems();
+    /**
+     * add new author to the table
+     */
+	@FXML protected void addAuthors(ActionEvent event) {
+		
+        ObservableList<Author> data = authorsTable.getItems();
         data.add(new Author(firstNameField.getText(), lastNameField.getText(), phoneField.getText(), new Address("101 S. Main", "Fairfield", "IA", "52556"), bioField.getText()));
         
         firstNameField.setText("");
@@ -63,8 +65,7 @@ public class BookController {
 	@FXML protected void handleAddBook(ActionEvent event) throws IOException {
 	      System.out.println("Add New book");
 	      
-	      if(LibrarianUtil.emptyFields(new String[] {isbnTxt.getText().trim(), titleTxt.getText().trim(), 
-	    		  authorsTxt.getText().trim(), checkoutTxt.getText().trim(), copiesTxt.getText().trim()})) {
+	      if(LibrarianUtil.emptyFields(new String[] {isbnTxt.getText().trim(), titleTxt.getText().trim(), checkoutTxt.getText().trim(), copiesTxt.getText().trim()})) {
 	    	  actiontarget.setText("Empty book fields");
 	    	  actiontarget.setStyle("-fx-text-fill: red;");
 	    	  throw new IOException("Empty book fields");
@@ -75,13 +76,18 @@ public class BookController {
 	    	  actiontarget.setStyle("-fx-text-fill: red;");
 	    	  throw new IOException("Insert number of copies");
 	      }
-	      if(tableView.getItems().size()==0) {
+	      if(!LibrarianUtil.isNumericAtLeastOne(checkoutTxt.getText().trim())) {
+	    	  actiontarget.setText("Insert number of maximum checkout length");
+	    	  actiontarget.setStyle("-fx-text-fill: red;");
+	    	  throw new IOException("Insert number of maximum checkout length");
+	      }
+	      if(authorsTable.getItems().size()==0) {
 	    	  actiontarget.setText("You must add at least one author");
 	    	  actiontarget.setStyle("-fx-text-fill: red;");
 	    	  throw new IOException("You must add at least one author");
 	      }
 	      
-	      Book book = new Book(isbnTxt.getText().trim(), titleTxt.getText().trim(), Integer.valueOf(checkoutTxt.getText().trim()), tableView.getItems());
+	      Book book = new Book(isbnTxt.getText().trim(), titleTxt.getText().trim(), Integer.valueOf(checkoutTxt.getText().trim()), authorsTable.getItems());
 	      for(int i = 0; i < Integer.valueOf(copiesTxt.getText().trim()); i++) {
 	    	  book.addCopy();
 	      }
