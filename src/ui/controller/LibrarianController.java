@@ -50,7 +50,6 @@ public class LibrarianController {
     @FXML protected void handleCheckoutBook(ActionEvent event) throws IOException{
     	logger.info("Start book checkout"+memeberID);
     	DataAccess da = new DataAccessFacade(); 
-    	logger.info("original "+da.readBooksMap()); 
     	ControllerInterface c = new SystemController();    	
     	try {
     		List<CheckoutEntry> checkoutHistory = c.checkoutBook(memeberID.getText(), bookISBN.getText());

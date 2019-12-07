@@ -17,6 +17,7 @@ import ui.LibrarianWindow;
 import ui.LoginWindow;
 import ui.Start;
 import ui.SystemWindow;
+import util.LibrarianUtil;
  
 public class LoginController {
     @FXML private Label actiontarget;
@@ -27,7 +28,7 @@ public class LoginController {
     @FXML protected void handleSubmitButtonAction(ActionEvent event) throws IOException {
 //        actiontarget.setText("Sign in button pressed " + usernameTxt.getText());
     	
-    	if (usernameTxt.getText().trim().equals("")|| passwordField.getText().trim().equals(""))
+    	if (LibrarianUtil.emptyFields(new String[] {usernameTxt.getText().trim(), passwordField.getText().trim()}))
     	{
     		actiontarget.setVisible(true);
 			actiontarget.setText("Please fill your credentials correctly! ");
