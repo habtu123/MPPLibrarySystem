@@ -12,8 +12,10 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import ui.AdminWindow;
 import ui.LibrarianWindow;
 import ui.LoginWindow;
+import ui.Start;
 import ui.SystemWindow;
  
 public class LoginController {
@@ -37,12 +39,12 @@ public class LoginController {
 			
 			if(SystemController.currentAuth.equals(Auth.ADMIN)) {
 			
-				if(!SystemWindow.INSTANCE.isInitialized()) {
-						SystemWindow.INSTANCE.init();
+				if(!AdminWindow.INSTANCE.isInitialized()) {
+						AdminWindow.INSTANCE.init();
 					}
 					LoginWindow.INSTANCE.clear(); 
-					SystemWindow.INSTANCE.clear();
-					SystemWindow.INSTANCE.show();
+					AdminWindow.INSTANCE.clear();
+					AdminWindow.INSTANCE.show();
 					LoginWindow.INSTANCE.hide();
 				}
 			else if (SystemController.currentAuth.equals(Auth.LIBRARIAN)) {
@@ -75,5 +77,10 @@ public class LoginController {
 				//actiontarget.setText("bad ");
     	}
     }
+    }
+    
+    @FXML protected void handleBackButtonAction(ActionEvent action) {
+    	Start.hideAllWindows();
+		Start.primStage().show();
     }
 }

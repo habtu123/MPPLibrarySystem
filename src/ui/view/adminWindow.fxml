@@ -13,7 +13,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
 <!-- fx:controller="fxmlexample.FXMLExampleController"  -->
-<BorderPane fx:controller="ui.controller.LibrarianController" xmlns:fx="http://javafx.com/fxml" fx:id="contentBars">
+<BorderPane fx:controller="ui.controller.AdminSideBarController" xmlns:fx="http://javafx.com/fxml" fx:id="contentBars">
     <top>
         <BorderPane styleClass="header-section">
             <left>
@@ -40,14 +40,28 @@
     <left>
         <VBox styleClass="sidebar-section" id="both" >
             <children>
-                <Button text="Search Book" styleClass="sidebar-button" id="searchBook"  ></Button>
-                <Button text="Checkout Book"  styleClass="sidebar-button" id="checkoutBookBoth" onAction="#handleAddNewMemeberBoth" ></Button>
+                <Button text="Add New Member" styleClass="sidebar-button" id="addNewMemeberBoth" ></Button>
+                <Button text="Add A Copy"  styleClass="sidebar-button" id="addCopyBoth" ></Button>
+                <Button text="Checkout Book"  styleClass="sidebar-button" id="checkoutBookBoth" ></Button>
                
+            </children>
+        </VBox>
+        
+          <VBox styleClass="sidebar-section" id="lib">
+            <children>
+                <Button text="Checkout Book" styleClass="sidebar-button" id="checkout-book" ></Button>
+            </children>
+             </VBox>
+            <VBox styleClass="sidebar-section" id="admin">
+            <children>
+                <Button text="Add New Member" styleClass="sidebar-button" id="addNewMemeber" onAction="#addNewMemeberAction"></Button>
+                <Button text="Add A Copy" styleClass="sidebar-button" id="addBookCopy" onAction="#addNewCopyAction"></Button>
+                <Button text="Add A Book" styleClass="sidebar-button" id="addNewBook" onAction="#addNewBookAction"></Button>
             </children>
         </VBox>
     </left>
     <center>
-        
+        <!-- HERE THE CONTENT -->
     </center>
     <bottom>
         <HBox id="footer-section">
@@ -59,5 +73,4 @@
     <stylesheets>
 		    <URL value="@style/library.css" />
 		</stylesheets>
-		
 </BorderPane>
