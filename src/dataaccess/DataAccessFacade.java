@@ -162,7 +162,6 @@ public class DataAccessFacade implements DataAccess {
 		logger.info("Start savebook.....");
 		HashMap<String, Book> books = new HashMap<String, Book>();
 		books = readBooksMap(); 
-		books.remove(book.getIsbn()); 
 		books.put(book.getIsbn(), book); 
 		saveToStorage(StorageType.BOOKS, books);
 		logger.info("End savebook.....");

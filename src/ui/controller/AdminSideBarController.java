@@ -123,5 +123,17 @@ public class AdminSideBarController {
 		contentBars.setCenter(pane);
 	
 	}
+	
+	 @FXML
+	    protected void handlePrintRecord(ActionEvent event) throws IOException {
+	    	GridPane pane = FXMLLoader.load(getClass().getResource("../view/printCheckoutRecord.fxml"));
+	    	contentBars.setCenter(pane);
+	    }
+	 
+	 @FXML
+		protected void handleCheckOverdue(ActionEvent event) throws IOException {
+			GridPane pane = FXMLLoader.load(getClass().getResource("../view/viewBookOverdue.fxml"));
+			contentBars.setCenter(pane);
+		}
 
 }

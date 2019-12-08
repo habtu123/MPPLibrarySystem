@@ -132,7 +132,7 @@ public class SystemController implements ControllerInterface {
 		
 		List<CheckoutEntry> checkoutHistory = member.checkout(bookTobeCheckedOut, LocalDate.now(), (long)maxCheckeoutDays);
 		da.saveNewMember(member);
-		//da.saveNewBook(book);
+		da.saveNewBook(book);
 		loger.info("....................");
 		loger.info("End book checkout process.......");
 		loger.info("checkout complete: "+member.getFirstName() +"Book:"+member.getCheckoutRecord().getCheckoutEntry().get(0) );

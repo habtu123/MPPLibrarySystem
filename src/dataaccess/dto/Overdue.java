@@ -1,8 +1,6 @@
 package dataaccess.dto;
 
-import java.time.LocalDate;
-
-public class Overdue {
+public class Overdue implements Comparable<Overdue>{
 	private String isbn; 
 	private String bookTitle; 
 	private Integer copyNumber; 
@@ -59,6 +57,11 @@ public class Overdue {
 	}
 	public void setStatus(String status) {
 		this.status = status;
+	}
+
+	@Override
+	public int compareTo(Overdue o) {
+		return (this.getCopyNumber() - o.getCopyNumber());
 	} 
 	
 	
