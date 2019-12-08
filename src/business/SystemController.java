@@ -139,7 +139,8 @@ public class SystemController implements ControllerInterface {
 		return checkoutHistory; 
 	}
 	
-	Book findBook(String isbn) throws BookNotFoundException {
+	@Override
+	public Book findBook(String isbn) throws BookNotFoundException {
 		List<String> books = allBookIds(); 
 		if(!books.contains(isbn)) {
 			throw new BookNotFoundException("Book not Found"); 
@@ -167,5 +168,13 @@ public class SystemController implements ControllerInterface {
 		List<Book> retval = new ArrayList<>();
 		retval.addAll(da.readBooksMap().values());
 		return retval;
+	}
+	@Override
+	public List<LibraryMember> findAllMemebers() {
+		DataAccess da = new DataAccessFacade();
+		List<LibraryMember> memebrs = new ArrayList<LibraryMember>(); 
+		HashMap<String, LibraryMember> allMemebers= da.readMemberMap();
+		allMemebers.forEach((k,v)->memebrs.add(v));
+		return memebrs;
 	}
 }

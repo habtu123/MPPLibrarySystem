@@ -18,7 +18,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.VBox;
 import ui.LoginWindow;
 import ui.Start;
 import ui.SystemWindow;
@@ -41,8 +40,7 @@ public class LibrarianController {
 		LoginWindow.INSTANCE.show();
   	}
     
-    @FXML protected void handleAddNewMemeberBoth(ActionEvent event) throws IOException{
-    	
+    @FXML protected void handleAddNewMemeberBoth(ActionEvent event) throws IOException{    	
     	GridPane pane = FXMLLoader.load(getClass().getResource("../view/checkoutBook.fxml"));
     	contentBars.setCenter(pane);
     }
@@ -72,6 +70,11 @@ public class LibrarianController {
 		} 
     }
     
+    @FXML
+    protected void handlePrintRecord(ActionEvent event) throws IOException {
+    	GridPane pane = FXMLLoader.load(getClass().getResource("../view/printCheckoutRecord.fxml"));
+    	contentBars.setCenter(pane);
+    }
 
 	@FXML
 	protected void showAllMemberidAction(ActionEvent event) throws IOException {
@@ -84,6 +87,12 @@ public class LibrarianController {
 		GridPane pane = FXMLLoader.load(getClass().getResource("../view/AllBooks.fxml"));
 		contentBars.setCenter(pane);
 	
+	}
+	
+	@FXML
+	protected void handleCheckOverdue(ActionEvent event) throws IOException {
+		GridPane pane = FXMLLoader.load(getClass().getResource("../view/viewBookOverdue.fxml"));
+		contentBars.setCenter(pane);
 	}
     
    

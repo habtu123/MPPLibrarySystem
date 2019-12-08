@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.text.TextFlow?>
+<?import javafx.scene.control.TableView?>
+<!-- fx:controller="fxmlexample.FXMLExampleController" -->
+<GridPane fx:id="paneScreen" fx:controller="ui.controller.PrintCheckoutRecordController"
+	styleClass="page" xmlns:fx="http://javafx.com/fxml" alignment="center"
+	hgap="10" vgap="10">
+	<padding>
+		<Insets top="25" right="25" bottom="10" left="25" />
+	</padding>
+	<Text text="Add New Book" GridPane.columnIndex="0" GridPane.rowIndex="0" GridPane.columnSpan="2" />
+
+	<Label text="Memebr ID" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+	<TextField fx:id="memberId" GridPane.columnIndex="1" GridPane.rowIndex="1" /> 
+	<Button text="Search" GridPane.columnIndex="2" GridPane.rowIndex="1" id="checkout" onAction="#handleSearchMemeber"></Button>
+	<!-- 
+	  <TableView fx:id="authorsTable" GridPane.columnIndex="0" 
+	        GridPane.rowIndex="3" GridPane.columnSpan="3">
+	         
+	    </TableView>
+	  -->   
+	    <Button text="Print" GridPane.columnIndex="0" GridPane.rowIndex="6" id="checkout" onAction="#handleCheckoutPrint"></Button>
+	<Label GridPane.columnIndex="1" GridPane.rowIndex="6" fx:id="actiontarget" StyleClass="alert, alert-danger" visible="false" />
+	
+		
+		<stylesheets>
+		    <URL value="@style/bootstrapfx.css" />
+		</stylesheets>
+</GridPane>

@@ -27,6 +27,12 @@ public class CheckoutEntry  implements Serializable {
 	public LocalDate getDueDate() {
 		return dueDate;
 	}
+
+	@Override
+	public String toString() {
+		return "CheckoutEntry [book=" + book + ", checkoutDate=" + checkoutDate + ", dueDate=" + dueDate + "]";
+	}
+	
 	 
 	 
 	 

@@ -93,7 +93,13 @@ number of copies)
 
 <HBox spacing="10"
         GridPane.columnIndex="2" GridPane.rowIndex="10">
-		<Label  GridPane.columnIndex="0" GridPane.rowIndex="9" fx:id="actiontarget" StyleClass="alert, alert-danger"/>
+		<Label  GridPane.columnIndex="0" GridPane.rowIndex="9" fx:id="actiontarget"/>
 	</HBox>
 		
+		  <stylesheets>
+		    <URL value="@style/library.css" />
+	</stylesheets>
+	 <stylesheets>
+		    <URL value="@style/bootstrapfx.css" />
+	</stylesheets>
 </GridPane>

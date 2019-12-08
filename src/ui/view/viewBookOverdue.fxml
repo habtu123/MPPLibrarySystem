@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.text.TextFlow?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.cell.*?> 
+<?import javafx.collections.*?> 
+<?import fxmltableview.*?> 
+<!-- fx:controller="fxmlexample.FXMLExampleController" -->
+<GridPane fx:id="paneScreen" fx:controller="ui.controller.BookOverdueController"
+	styleClass="page" xmlns:fx="http://javafx.com/fxml" alignment="center"
+	hgap="10" vgap="10">
+	<padding>
+		<Insets top="25" right="25" bottom="10" left="25" />
+	</padding>
+	<Text text="View Over Due" GridPane.columnIndex="0" GridPane.rowIndex="0" GridPane.columnSpan="2" />
+
+	<Label text="Book ISBN" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+	<TextField fx:id="bookIsbn" GridPane.columnIndex="1" GridPane.rowIndex="1" /> 
+	<Button text="Search" GridPane.columnIndex="2" GridPane.rowIndex="1" id="show" onAction="#handleSearchBook"></Button>
+	  <TableView fx:id="overdueTable" GridPane.columnIndex="0" 
+	        GridPane.rowIndex="3" GridPane.columnSpan="3">
+	         <columns>
+	     <TableColumn text="Book ISBN">
+	          	<cellValueFactory><PropertyValueFactory property="isbn" />
+		        	</cellValueFactory>
+		        </TableColumn>
+	          <TableColumn text="Book Title">
+	          		<cellValueFactory><PropertyValueFactory property="bookTitle" />
+		        	</cellValueFactory>
+		        </TableColumn>
+	          <TableColumn text="Copy Number">
+	          	<cellValueFactory><PropertyValueFactory property="copyNumber" />
+		        	</cellValueFactory>
+		        </TableColumn>
+	          <TableColumn text="Memeber Name">
+	          	<cellValueFactory><PropertyValueFactory property="memeberName"/>
+		        	</cellValueFactory>
+		        </TableColumn>
+				
+				<TableColumn text="Due Date">
+	          	<cellValueFactory><PropertyValueFactory property="dueDate"/>
+		        	</cellValueFactory>
+		        </TableColumn>
+				
+				<TableColumn text="Status">
+	          	<cellValueFactory><PropertyValueFactory property="status"/>
+		        	</cellValueFactory>
+		        </TableColumn>
+     </columns>
+	    </TableView> 
+	<Label GridPane.columnIndex="1" GridPane.rowIndex="6" fx:id="actiontarget" StyleClass="alert, alert-danger" visible="false" />
+	
+		
+		<stylesheets>
+		    <URL value="@style/bootstrapfx.css" />
+		</stylesheets>
+</GridPane>

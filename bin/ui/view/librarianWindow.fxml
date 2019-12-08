@@ -12,7 +12,6 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
-<?import org.kordamp.bootstrapfx.scene.layout.Panel?>
 <!-- fx:controller="fxmlexample.FXMLExampleController"  -->
 <BorderPane fx:controller="ui.controller.LibrarianController" xmlns:fx="http://javafx.com/fxml" fx:id="contentBars">
     <top>
@@ -42,11 +41,12 @@
     <left>
         <VBox styleClass="sidebar-section" id="both" >
             <children>
-                <Button text="Search Book" styleClass="sidebar-button" id="searchBook"  ></Button>
+                <Button text="Print Record" styleClass="sidebar-button" id="searchBook"  onAction="#handlePrintRecord"></Button>
+                <Button text="Check Overdue"  styleClass="sidebar-button" id="allOverDue"  onAction="#handleCheckOverdue"></Button>
                 <Button text="Checkout Book"  styleClass="sidebar-button" id="checkoutBookBoth" onAction="#handleAddNewMemeberBoth" ></Button>
                 <Button text="List All Books"  styleClass="sidebar-button" id="listAllBooks"  onAction="#listALlBooks"></Button>
                 <Button text="All member id"  styleClass="sidebar-button" id="allMemberid"  onAction="#showAllMemberidAction"></Button>
-               
+               	
             </children>
         </VBox>
     </left>

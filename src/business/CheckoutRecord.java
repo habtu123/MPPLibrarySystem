@@ -20,5 +20,11 @@ public class CheckoutRecord  implements Serializable {
 	public List<CheckoutEntry> getCheckoutEntry() {
 		return checkoutEntry;
 	}
+
+	@Override
+	public String toString() {
+		return "CheckoutRecord [checkoutEntry=" + checkoutEntry + "]";
+	}
+	
 	
 }
