@@ -39,7 +39,7 @@ public class LoginWindow extends Stage implements LibWindow {
 		
 		root = FXMLLoader.load(getClass().getResource("./view/Login.fxml"));
 		super.setTitle("Log in");
-		Scene scene = new Scene(root, 1000,500);
+		Scene scene = new Scene(root, 500,300);
 		setScene(scene);
 		isInitialized(false);
 	} catch (IOException e) {
