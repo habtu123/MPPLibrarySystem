@@ -67,53 +67,58 @@ public class BookController {
     }
 	
 	@FXML protected void handleAddBook(ActionEvent event) throws IOException {
+		boolean ok = true;
 	      System.out.println("Add New book");
 	      
-	      if(LibrarianUtil.emptyFields(new String[] {isbnTxt.getText().trim(), titleTxt.getText().trim(), checkoutTxt.getText().trim(), copiesTxt.getText().trim()})) {
+	      if(ok && LibrarianUtil.emptyFields(new String[] {isbnTxt.getText().trim(), titleTxt.getText().trim(), checkoutTxt.getText().trim(), copiesTxt.getText().trim()})) {
 	    	  actiontarget.setText("Empty book fields");
 	    	  actiontarget.setStyle("-fx-text-fill: red;");
-	    	  throw new IOException("Empty book fields");
+	    	  ok = false;
 	      }
 	      
-	      if(!LibrarianUtil.isNumericAtLeastOne(copiesTxt.getText().trim())) {
+	      if(ok && !LibrarianUtil.isNumericAtLeastOne(copiesTxt.getText().trim())) {
 	    	  actiontarget.setText("Insert number of copies");
 	    	  actiontarget.setStyle("-fx-text-fill: red;");
-	    	  throw new IOException("Insert number of copies");
+	    	  ok = false;
 	      }
-	      if(!LibrarianUtil.isNumericAtLeastOne(checkoutTxt.getText().trim())) {
+	      if(ok && !LibrarianUtil.isNumericAtLeastOne(checkoutTxt.getText().trim())) {
 	    	  actiontarget.setText("Insert number of maximum checkout length");
 	    	  actiontarget.setStyle("-fx-text-fill: red;");
-	    	  throw new IOException("Insert number of maximum checkout length");
+	    	  ok = false;
 	      }
-	      if(authorsTable.getItems().size()==0) {
+	      if(ok && authorsTable.getItems().size()==0) {
 	    	  actiontarget.setText("You must add at least one author");
 	    	  actiontarget.setStyle("-fx-text-fill: red;");
-	    	  throw new IOException("You must add at least one author");
+	    	  ok = false;
 	      }
 	      
-	      List<Author> authors = new ArrayList<Author>();
-	      Author autAux;
-	      for(int i = 0; i < authorsTable.getItems().size(); i++) {
-	    	  autAux = authorsTable.getItems().get(i);
-	    	  authors.add(autAux);
-	      }
-	      Book book = new Book(isbnTxt.getText().trim(), titleTxt.getText().trim(), Integer.valueOf(checkoutTxt.getText().trim()), 
-	    		  authors);
-
-	      for(int i = 0; i < Integer.valueOf(copiesTxt.getText().trim()); i++) {
-	    	  book.addCopy();
-	      }
-	      ControllerInterface c = new SystemController();
+	      if(ok) {
 	      
-	      try {
-	    	c.addBook(book);
-	    	actiontarget.setText("Book added successfully");
-			actiontarget.setStyle("-fx-text-fill: blue;");
-		} catch (LibrarySystemException e) {
-			
-			 actiontarget.setText(e.getMessage());
-			 actiontarget.setStyle("-fx-text-fill: red;");
+		      List<Author> authors = new ArrayList<Author>();
+		      Author autAux;
+		      for(int i = 0; i < authorsTable.getItems().size(); i++) {
+		    	  autAux = authorsTable.getItems().get(i);
+		    	  authors.add(autAux);
+		      }
+		      Book book = new Book(isbnTxt.getText().trim(), titleTxt.getText().trim(), Integer.valueOf(checkoutTxt.getText().trim()), 
+		    		  authors);
+	
+		      for(int i = 0; i < Integer.valueOf(copiesTxt.getText().trim()); i++) {
+		    	  book.addCopy();
+		      }
+		      ControllerInterface c = new SystemController();
+	      
+	      
+		      try {
+		    	c.addBook(book);
+		    	actiontarget.setText("Book added successfully");
+				actiontarget.setStyle("-fx-text-fill: blue;");
+			} catch (LibrarySystemException e) {
+				
+				 actiontarget.setText(e.getMessage());
+				 actiontarget.setStyle("-fx-text-fill: red;");
+			}
 		}
-	  }
+	}
   
 }

@@ -27,35 +27,38 @@ public class MemberController {
 	
 	
 	@FXML protected void handleAddNewmemberAction(ActionEvent event) throws IOException {
+		boolean ok = true;
       System.out.println("Add Book copy");
       actiontarget.setText("");
-      if(LibrarianUtil.emptyFields(new String[] {memberIdTxt.getText().trim(), firstnameTxt.getText().trim(), 
+      if(ok && LibrarianUtil.emptyFields(new String[] {memberIdTxt.getText().trim(), firstnameTxt.getText().trim(), 
     		  lastnameTxt.getText().trim(), phonoTxt.getText().trim()})) {
     	  actiontarget.setText("Empty LibraryMember fields");
     	  actiontarget.setStyle("-fx-text-fill: red;");
-    	  throw new IOException("Empty LibraryMember fields");
+    	  ok = false;
       }
       
-      if(LibrarianUtil.emptyFields(new String[] {streetTxt.getText().trim(), cityTxt.getText().trim(), 
+      if(ok && LibrarianUtil.emptyFields(new String[] {streetTxt.getText().trim(), cityTxt.getText().trim(), 
     		  stateTxt.getText().trim(), zipTxt.getText().trim()})) {
     	  actiontarget.setText("Empty addreess fields");
     	  actiontarget.setStyle("-fx-text-fill: red;");
-    	  throw new IOException("Empty addreess fields");
+    	  ok = false;
       }
       
-      LibraryMember newMember = new LibraryMember(memberIdTxt.getText().trim(), firstnameTxt.getText().trim(), 
-    		  lastnameTxt.getText().trim(), phonoTxt.getText().trim(), 
-    		  new Address(streetTxt.getText(), cityTxt.getText(), stateTxt.getText(), zipTxt.getText()), new CheckoutRecord());
-
-      ControllerInterface c = new SystemController();
-      try {
-		c.addMember(newMember);
-		actiontarget.setText("Member added successfully");
-		actiontarget.setStyle("-fx-text-fill: blue;");
-	} catch (LibrarySystemException e) {
-		 actiontarget.setText(e.getMessage());
-		 actiontarget.setStyle("-fx-text-fill: red;");
-	}
+      if(ok) {
+	      LibraryMember newMember = new LibraryMember(memberIdTxt.getText().trim(), firstnameTxt.getText().trim(), 
+	    		  lastnameTxt.getText().trim(), phonoTxt.getText().trim(), 
+	    		  new Address(streetTxt.getText(), cityTxt.getText(), stateTxt.getText(), zipTxt.getText()), new CheckoutRecord());
+	
+		      ControllerInterface c = new SystemController();
+		      try {
+				c.addMember(newMember);
+				actiontarget.setText("Member added successfully");
+				actiontarget.setStyle("-fx-text-fill: blue;");
+			} catch (LibrarySystemException e) {
+				 actiontarget.setText(e.getMessage());
+				 actiontarget.setStyle("-fx-text-fill: red;");
+			}
+		}
   	}
   
 }
