@@ -36,9 +36,9 @@ public class LibrarianController {
   	SystemWindow.INSTANCE.clear();
   	if(LoginWindow.INSTANCE.isInitialized())
   		LoginWindow.INSTANCE.clear();
-  	Start.hideAllWindows();
-		Start.primStage().show();
-		
+  		Start.hideAllWindows();
+		//Start.primStage().show();
+		LoginWindow.INSTANCE.show();
   	}
     
     @FXML protected void handleAddNewMemeberBoth(ActionEvent event) throws IOException{

@@ -81,8 +81,8 @@ public class AdminSideBarController {
 		if (LoginWindow.INSTANCE.isInitialized())
 			LoginWindow.INSTANCE.clear();
 		Start.hideAllWindows();
-		Start.primStage().show();
-
+		//Start.primStage().show();
+		LoginWindow.INSTANCE.show();
 	}
 
 	@FXML

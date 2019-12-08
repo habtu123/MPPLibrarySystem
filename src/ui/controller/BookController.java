@@ -110,6 +110,7 @@ public class BookController {
 	    	actiontarget.setText("Book added successfully");
 			actiontarget.setStyle("-fx-text-fill: blue;");
 		} catch (LibrarySystemException e) {
+			
 			 actiontarget.setText(e.getMessage());
 			 actiontarget.setStyle("-fx-text-fill: red;");
 		}

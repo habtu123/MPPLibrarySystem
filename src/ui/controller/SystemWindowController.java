@@ -29,8 +29,8 @@ public class SystemWindowController {
     		LoginWindow.INSTANCE.clear();
     		LoginWindow.INSTANCE.isInitialized(false);
     	Start.hideAllWindows();
-		Start.primStage().show();
-		
+		//Start.primStage().show();
+    	LoginWindow.INSTANCE.show();
     	}
     
 }
