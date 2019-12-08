@@ -17,7 +17,7 @@ public class AdminWindow extends Stage implements LibWindow {
 		   try {
 			root = FXMLLoader.load(getClass().getResource("./view/adminWindow.fxml"));
 			
-			Scene scene = new Scene(root, 800,500);
+			Scene scene = new Scene(root, 1000,500);
 			setScene(scene);
 			isInitialized(false);
 		} catch (IOException e) {
