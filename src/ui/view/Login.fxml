@@ -10,7 +10,7 @@
 <GridPane fx:id="paneScreen" fx:controller="ui.controller.LoginController" styleClass="page"
 xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
 <padding><Insets top="25" right="25" bottom="10" left="25"/></padding>
-<Text text="Welcome" style="-fx-text-fill: white"
+<Text text="Welcome" styleClass="h2"
         GridPane.columnIndex="0" GridPane.rowIndex="0"
         GridPane.columnSpan="2"/>
  

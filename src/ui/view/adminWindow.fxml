@@ -49,7 +49,21 @@
         </VBox>
     </left>
     <center>
-        <!-- HERE THE CONTENT -->
+         <Label id="content-header" text="Content header"></Label>
+                <Label id="content" styleClass="text-center">
+                    <text>
+                        Welcome, 
+                        
+                        You will find all functionalities you are authorized to 
+                        perfom on the left side of the screen. 
+                        
+                        Please click the approprite button in order to achive the task 
+                        you desire to do. 
+                        
+                        Thank you!
+                        
+                    </text>
+                </Label>
     </center>
     <bottom>
         <HBox id="footer-section">

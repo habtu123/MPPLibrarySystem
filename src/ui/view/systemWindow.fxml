@@ -12,6 +12,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
+<?import javafx.scene.text.Text?>
 <!-- fx:controller="fxmlexample.FXMLExampleController"  -->
 <BorderPane fx:controller="ui.controller.AdminSideBarController" xmlns:fx="http://javafx.com/fxml" fx:id="contentBars">
     <top>
@@ -54,6 +55,22 @@
     </left>
     <center>
         <!-- HERE THE CONTENT -->
+        
+        <Label id="content-header" text="Content header"></Label>
+                <Label id="content" styleClass="text-center">
+                    <text>
+                        Welcome, 
+                        
+                        You will find all functionalities you are authorized to 
+                        perfom on the left side of the screen. 
+                        
+                        Please click the approprite button in order to achive the task 
+                        you desire to do. 
+                        
+                        Thank you!
+                        
+                    </text>
+                </Label>
     </center>
     <bottom>
         <HBox id="footer-section">
@@ -62,6 +79,9 @@
             </children>
         </HBox>
     </bottom>
+     <stylesheets>
+		    <URL value="@style/bootstrapfx.css" />
+		</stylesheets>
     <stylesheets>
 		    <URL value="@style/library.css" />
 		</stylesheets>
