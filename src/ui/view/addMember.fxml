@@ -75,7 +75,7 @@
 
 <HBox spacing="10" alignment="bottom_right" 
         GridPane.columnIndex="4" GridPane.rowIndex="10">
-		<Label  GridPane.columnIndex="0" GridPane.rowIndex="9" fx:id="actiontarget" StyleClass="alert, alert-danger"/>
+		<Label  GridPane.columnIndex="0" GridPane.rowIndex="9" fx:id="actiontarget"/>
 	</HBox>
 		
 </GridPane>

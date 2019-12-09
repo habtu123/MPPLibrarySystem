@@ -1,6 +1,8 @@
 package ui.controller;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 import business.ControllerInterface;
 import business.LoginException;
@@ -8,6 +10,7 @@ import business.SystemController;
 import dataaccess.Auth;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -19,7 +22,7 @@ import ui.Start;
 import ui.SystemWindow;
 import util.LibrarianUtil;
  
-public class LoginController {
+public class LoginController implements Initializable{
     @FXML private Label actiontarget;
     @FXML private TextField usernameTxt;
     @FXML private PasswordField passwordField;
@@ -27,6 +30,7 @@ public class LoginController {
     
     @FXML protected void handleSubmitButtonAction(ActionEvent event) throws IOException {
 //        actiontarget.setText("Sign in button pressed " + usernameTxt.getText());
+
     	
     	if (LibrarianUtil.emptyFields(new String[] {usernameTxt.getText().trim(), passwordField.getText().trim()}))
     	{
@@ -84,4 +88,9 @@ public class LoginController {
     	Start.hideAllWindows();
 		Start.primStage().show();
     }
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+    	paneScreen.setStyle("-fx-background-image: url('ui/view/library2.jpeg')");
+	}
 }
